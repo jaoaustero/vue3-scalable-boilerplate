@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IButton > Should be convert into anchor instead of button but has a style of button 1`] = `"<a class="i-button i-button-default" disabled="false" href="https://google.com" aria-label="Button" role="button" title="Button">Button</a>"`;
+
+exports[`IButton > Should have WCAG attributes 1`] = `"<button class="i-button i-button-default" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a circle modifier class name 1`] = `"<button class="i-button i-button-default i-button-circle" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a color modifier class name 1`] = `"<button class="i-button i-button-primary" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a dashed modifier class name 1`] = `"<button class="i-button i-button-dashed" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a disabled modifier attributes 1`] = `"<button class="i-button i-button-default" type="button" aria-label="Button" title="Button" disabled="">Button</button>"`;
+
+exports[`IButton > Should set a outline modifier class name 1`] = `"<button class="i-button i-button-outline i-button-outline-default" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a rounded modifier class name 1`] = `"<button class="i-button i-button-default i-button-rounded" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a size modifier class name 1`] = `"<button class="i-button i-button-default i-button-large" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a square modifier class name 1`] = `"<button class="i-button i-button-default i-button-square" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set a text modifier class name 1`] = `"<button class="i-button i-button-text" type="button" aria-label="Button" title="Button">Button</button>"`;
+
+exports[`IButton > Should set default attributes, element and class 1`] = `"<button class="i-button i-button-default" type="button" aria-label="Button" title="Button">Button</button>"`;
