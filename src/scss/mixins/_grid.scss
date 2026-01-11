@@ -53,7 +53,7 @@
 				}
 			}
 		} @else if ($classname == "#{$prefix}child-width-expand") {
-			.#{$classname} > :not([class*="uis-width"]) {
+			.#{$classname} > :not([class*="i-width"]) {
 				@each $property, $value in $style {
 					#{$property}: #{$value};
 				}
@@ -80,11 +80,10 @@
 }
 
 @mixin generate-child-width($size, $classname, $style) {
-	$condition: if(
-		$classname == "#{$prefix}child-width-expand",
-		":not([class*=" uis-width "])",
-		"*"
-	);
+	$condition: "*";
+	@if $classname == "#{$prefix}child-width-expand" {
+		$condition: ":not([class*='i-width'])";
+	}
 
 	@if ($classname != "#{$prefix}child-width") {
 		@if ($size == "small") {
@@ -199,11 +198,10 @@
 
 	// create single widths
 	@each $classname, $style in $width {
-		$condition: if(
-			$classname == "#{$prefix}width",
-			"[class*=" #{$classname}"]",
-			".#{$classname}"
-		);
+		$condition: ".#{$classname}";
+		@if $classname == "#{$prefix}width" {
+			$condition: "[class*='#{$classname}']";
+		}
 
 		#{$condition} {
 			@each $property, $value in $style {
