@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IAvatar > Should display label text in span 1`] = `"<div class="i-avatar i-avatar-default"><span>A</span></div>"`;
+
+exports[`IAvatar > Should not render span when src is provided 1`] = `"<div class="i-avatar i-avatar-default i-avatar-image"><img src="https://example.com/avatar.jpg" alt="A"></div>"`;
+
+exports[`IAvatar > Should set a color modifier class name 1`] = `"<div class="i-avatar i-avatar-primary"><span>A</span></div>"`;
+
+exports[`IAvatar > Should set a size modifier class name 1`] = `"<div class="i-avatar i-avatar-default i-avatar-large"><span>A</span></div>"`;
+
+exports[`IAvatar > Should set default attributes, element and class 1`] = `"<div class="i-avatar i-avatar-default"><span>A</span></div>"`;
+
+exports[`IAvatar > Should set image modifier class name and render img when src is provided 1`] = `"<div class="i-avatar i-avatar-default i-avatar-image"><img src="https://example.com/avatar.jpg" alt="A"></div>"`;
