@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IBadge > Should display count prop value 1`] = `"<div class="i-badge">5</div>"`;
+
+exports[`IBadge > Should display double digit count 1`] = `"<div class="i-badge">42</div>"`;
+
+exports[`IBadge > Should display large number count 1`] = `"<div class="i-badge">99+</div>"`;
+
+exports[`IBadge > Should display single digit count 1`] = `"<div class="i-badge">9</div>"`;
+
+exports[`IBadge > Should display zero when count is 0 1`] = `"<div class="i-badge">0</div>"`;
+
+exports[`IBadge > Should set default attributes, element and class 1`] = `"<div class="i-badge">5</div>"`;

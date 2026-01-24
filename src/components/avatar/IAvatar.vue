@@ -60,3 +60,7 @@ const getClasses = computed(() => {
 		</span>
 	</div>
 </template>
+
+<style lang="scss">
+@use "./IAvatar.scss" as *;
+</style>

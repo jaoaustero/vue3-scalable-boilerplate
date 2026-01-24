@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IContainer > Should render slot content 1`] = `"<div class="i-container">Container content</div>"`;
+
+exports[`IContainer > Should set a large size modifier class name 1`] = `"<div class="i-container i-container-large">Container content</div>"`;
+
+exports[`IContainer > Should set a medium size modifier class name 1`] = `"<div class="i-container i-container-medium">Container content</div>"`;
+
+exports[`IContainer > Should set a small size modifier class name 1`] = `"<div class="i-container i-container-small">Container content</div>"`;
+
+exports[`IContainer > Should set default attributes, element and class 1`] = `"<div class="i-container">Container content</div>"`;
