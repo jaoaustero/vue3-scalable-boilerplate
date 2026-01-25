@@ -188,6 +188,8 @@ $text-background-color: theme-color(primary) !default;
 	text-align: justify !important;
 }
 
+@include rtl-text-alignment();
+
 /* Phone landscape and bigger */
 @include respond-to(small) {
 	.#{$prefix}text-left\@s {

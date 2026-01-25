@@ -1,0 +1,100 @@
+@use "../helpers" as *;
+
+/* Margin left and right
+ * ============================================================ */
+@mixin rtl-margin($size, $value) {
+	$name: "margin";
+	@if $size != null and $size != "" {
+		$name: "margin-#{$size}";
+	}
+
+	body.#{$prefix}rtl .#{$prefix}#{$name}-left {
+		margin-left: auto !important;
+		margin-right: $value !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}#{$name}-right {
+		margin-right: auto !important;
+		margin-left: $value !important;
+	}
+}
+
+@mixin rtl-margin-left($size, $value) {
+	body.#{$prefix}rtl .#{$prefix}#{$size}-left {
+		margin-left: auto !important;
+		margin-right: $value !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}#{$size}-right {
+		margin-right: auto !important;
+		margin-left: $value !important;
+	}
+}
+
+
+/* Margin remove
+ * ============================================================ */
+ @mixin rtl-margin-remove() {
+	body.#{$prefix}rtl .#{$prefix}magin-remove-left {
+		margin-left: auto !important;
+		margin-right: 0 !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}margin-remove-right {
+		margin-right: auto !important;
+		margin-left: 0 !important;
+	}
+}
+
+/* Margin auto
+ * ============================================================ */
+ @mixin rtl-margin-auto() {
+	body.#{$prefix}rtl .#{$prefix}magin-remove-left {
+		margin-right: auto !important;
+		margin-left: 0px !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}margin-remove-right {
+		margin-left: auto !important;
+		margin-right: 0px !important;
+	}
+}
+
+
+/* Padding remove
+ * ============================================================ */
+@mixin rtl-padding-remove() {
+	body.#{$prefix}rtl .#{$prefix}padding-remove-left {
+		padding-left: auto !important;
+		padding-right: 0 !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}padding-remove-right {
+		padding-right: auto !important;
+		padding-left: 0 !important;
+	}
+}
+
+/* Text alignment
+ * ============================================================ */
+@mixin rtl-text-alignment() {
+	body.#{$prefix}rtl .#{$prefix}text-left {
+		text-align: right !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}text-right {
+		text-align: left !important;
+	}
+}
+
+/* Float
+ * ============================================================ */
+@mixin rtl-float() {
+	body.#{$prefix}rtl .#{$prefix}float-left {
+		float: right !important;
+	}
+
+	body.#{$prefix}rtl .#{$prefix}float-right {
+		float: left !important;
+	}
+}

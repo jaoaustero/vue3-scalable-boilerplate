@@ -67,6 +67,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 	margin-right: $margin-margin !important;
 }
 
+@include rtl-margin("", $margin-margin);
+
 /*
  * Extra Small
  */
@@ -94,6 +96,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 .#{$prefix}margin-xsmall-right {
 	margin-right: $margin-xsmall-margin !important;
 }
+
+@include rtl-margin-left("xsmall", $margin-xsmall-margin);
 
 /*
  * Small
@@ -123,6 +127,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 	margin-right: $margin-small-margin !important;
 }
 
+@include rtl-margin-left("small", $margin-small-margin);
+
 /*
  * Medium
  */
@@ -151,6 +157,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 	margin-right: $margin-medium-margin !important;
 }
 
+@include rtl-margin-left("medium", $margin-medium-margin);
+
 /*
  * Large
  */
@@ -178,6 +186,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 .#{$prefix}margin-large-right {
 	margin-right: $margin-large-margin !important;
 }
+
+@include rtl-margin-left("large", $margin-large-margin);
 
 /* Desktop and bigger */
 @include respond-to(large) {
@@ -233,6 +243,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 .#{$prefix}margin-xlarge-right {
 	margin-right: $margin-xlarge-margin !important;
 }
+
+@include rtl-margin-left("xlarge", $margin-xlarge-margin);
 
 /* Desktop and bigger */
 @include respond-to(large) {
@@ -293,6 +305,8 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 	margin-top: 0 !important;
 }
 
+@include rtl-margin-remove();
+
 /* Auto Margin
    ============================================================ */
 
@@ -321,3 +335,5 @@ $margin-xlarge-margin-l: margin(xlarge) !default;
 	margin-top: auto !important;
 	margin-bottom: auto !important;
 }
+
+@include rtl-margin-auto();

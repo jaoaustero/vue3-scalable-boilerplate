@@ -130,6 +130,8 @@ $dragover-box-shadow: 0 0 20px rgba(100, 100, 100, 0.3) !default;
 	max-width: 100%;
 }
 
+@include rtl-float();
+
 /* Overflow
    ============================================================ */
 
