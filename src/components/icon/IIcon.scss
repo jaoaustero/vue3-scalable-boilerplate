@@ -1,0 +1,46 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+// ============================================================
+// Name:            Icon
+// Description:     Component for rendering svg icons
+//
+// Component:       `#{$prefix}icon`
+// ============================================================
+
+// Variables
+// ============================================================
+
+$icon-size: font(size) !default;
+$icon-color: text-color(default) !default;
+
+/* ============================================================
+    Component: Icon
+   ============================================================ */
+
+/*
+ * 1. Keep the icon inline and center its content.
+ * 2. Allow icon size to follow font-size.
+ */
+.#{$prefix}icon {
+	/* 1 */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	/* 2 */
+	font-size: $icon-size;
+	width: 1em;
+	height: 1em;
+
+	color: $icon-color;
+	line-height: 1;
+}
+
+.#{$prefix}icon > svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	fill: currentColor;
+}
