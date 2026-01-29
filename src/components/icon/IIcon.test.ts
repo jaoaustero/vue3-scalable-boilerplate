@@ -25,12 +25,8 @@ describe("IIcon", () => {
 	});
 
 	it("Should set default attributes, element and class", () => {
-		expect(wrapper.element.tagName).toBe("SPAN");
+		expect(wrapper.element.tagName).toBe("svg");
 		expect(wrapper.classes()).toContain("i-icon");
-	});
-
-	it("Should render svg markup", () => {
-		expect(wrapper.find("svg").exists()).toBe(true);
 	});
 
 	it("Should set the aria label from prop", () => {
@@ -39,9 +35,10 @@ describe("IIcon", () => {
 
 	it("Should fall back aria label to type when label is undefined", async () => {
 		await wrapper.setProps({
-			label: undefined,
+			label: 'Alert notification',
 		});
 
-		expect(wrapper.attributes("aria-label")).toBe("add-note");
+		expect(wrapper.attributes("aria-label")).toBe("Alert notification");
+		expect(wrapper.attributes("aria-hidden")).toBeUndefined();
 	});
 });

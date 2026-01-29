@@ -2,22 +2,37 @@
 @use "@/scss/functions" as *;
 @use "@/scss/mixins" as *;
 
-// ============================================================
-// Name:            Icon
-// Description:     Component for rendering svg icons
-//
-// Component:       `#{$prefix}icon`
-// ============================================================
+/* ============================================================
+ * Name:                Icon
+ * Description:         SVG icon display
+ *
+ * Component:           `#{$prefix}icon`
+ *
+ * Modifiers:           `#{$prefix}icon-xsmall`
+ *						`#{$prefix}icon-small`
+ *						`#{$prefix}icon-medium`
+ *						`#{$prefix}icon-large`
+ *						`#{$prefix}icon-xlarge`
+ *						`#{$prefix}icon-xxlarge`
+ *						`#{$prefix}icon-*`
+ * ============================================================ */
 
-// Variables
-// ============================================================
-
-$icon-size: font(size) !default;
+/* Variables
+ * ============================================================ */
 $icon-color: text-color(default) !default;
 
+$icon-size: font-size(large) !default;
+$icon-size-small: font-size(small) !default;
+$icon-size-medium: font-size(medium) !default;
+$icon-size-large: font-size(large) !default;
+$icon-size-xlarge: font-size(xlarge) !default;
+$icon-size-xxlarge: font-size(xxlarge) !default;
+
+$icon-margin: 0 0.2em !default;
+
 /* ============================================================
-    Component: Icon
-   ============================================================ */
+ * Component: Icon
+ * ============================================================ */
 
 /*
  * 1. Keep the icon inline and center its content.
@@ -25,22 +40,54 @@ $icon-color: text-color(default) !default;
  */
 .#{$prefix}icon {
 	/* 1 */
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-
-	/* 2 */
+	display: inline-block;
 	font-size: $icon-size;
+	line-height: 1;
+	color: inherit;
+	fill: currentColor;
+
 	width: 1em;
 	height: 1em;
 
-	color: $icon-color;
-	line-height: 1;
+	/* 2 */
+	vertical-align: middle;
+
+	/* 3 */
+	margin: $icon-margin;
 }
 
-.#{$prefix}icon > svg {
-	display: block;
-	width: 100%;
-	height: 100%;
+.#{$prefix}icon path,
+.#{$prefix}icon circle,
+.#{$prefix}icon rect,
+.#{$prefix}icon line,
+.#{$prefix}icon polyline,
+.#{$prefix}icon polygon {
 	fill: currentColor;
+}
+
+/* RTL Support */
+body.#{$prefix}rtl .#{$prefix}icon {
+	transform: scaleX(-1);
+}
+
+/* Size modifiers
+ * ============================================================ */
+.#{$prefix}icon-small {
+	font-size: $icon-size-small;
+}
+
+.#{$prefix}icon-medium {
+	font-size: $icon-size-medium;
+}
+
+.#{$prefix}icon-large {
+	font-size: $icon-size-large;
+}
+
+.#{$prefix}icon-xlarge {
+	font-size: $icon-size-xlarge;
+}
+
+.#{$prefix}icon-xxlarge {
+	font-size: $icon-size-xxlarge;
 }
