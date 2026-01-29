@@ -10,6 +10,16 @@ globs: "src/components/**/*"
 - Use `i-` as the class prefix in templates and styles (e.g., `i-button`).
 - Prefer the existing base SCSS utilities from `src/scss/base` when building layouts.
 
+## TypeScript Types Conventions
+- Create a `.types.ts` file for each component using the naming convention `ComponentName.types.ts` (e.g., `IButton.types.ts`).
+- Define prop types as interfaces (e.g., `ComponentNameProps`).
+- Define emit types as interfaces (e.g., `ComponentNameEmits`).
+- Export string literal union types for enum-like values (e.g., `type ComponentNameSize = "small" | "large"`).
+- Import and use these types in the component `.vue` file with `defineProps<ComponentNameProps>()` and `defineEmits<ComponentNameEmits>()`.
+- Import and use type definitions in `.stories.ts` files for type-safe options arrays.
+- Add JSDoc comments to all exported types and interfaces for better IDE documentation.
+
+
 ## SCSS Conventions
 - Always pull values from `src/scss/helpers/_variables.scss` via helper functions.
 - Every component SCSS must start with a variables block (like `IButton.scss`).

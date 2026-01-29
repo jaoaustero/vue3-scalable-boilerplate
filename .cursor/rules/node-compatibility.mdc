@@ -1,0 +1,10 @@
+---
+description: Ensure dependency compatibility with Node 24.11.1
+alwaysApply: true
+---
+
+# Node 24.11.1 Compatibility
+
+- When installing or upgrading dependencies, verify package engines support Node `24.11.1`.
+- Use `nvm use 24.11.1` before running `npm install` or `npm run` commands.
+- If a package requires a higher Node version, downgrade it to the latest compatible release.
