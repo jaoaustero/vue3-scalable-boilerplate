@@ -1,35 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { IAvatarProps } from './IAvatar.types';
 
 /**
  * @component IAvatar
  * @description Avatar component for displaying user images or initials
  */
 const props = withDefaults(
-	defineProps<{
-		/**
-		 * The color for the avatar background
-		 * @values primary, secondary
-		 */
-		color?: string;
-
-		/**
-		 * Text for the avatar, at least 1 or 2 characters mostly used
-		 * for user Initials
-		 */
-		label: string;
-
-		/**
-		 * Specific size or dimension
-		 * @values xsmall, small, medium, large, xlarge
-		 */
-		size?: string | null;
-
-		/**
-		 * Image source or path
-		 */
-		src?: string | null;
-	}>(),
+	defineProps<IAvatarProps>(),
 	{
 		color: 'default',
 		size: null,

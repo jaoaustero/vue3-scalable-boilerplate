@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import IContainer from "./IContainer.vue";
+import type { IContainerProps, ContainerSize } from "./IContainer.types";
 
 const meta: Meta<typeof IContainer> = {
 	title: "Atoms/Container",
@@ -16,7 +17,8 @@ const meta: Meta<typeof IContainer> = {
 	argTypes: {
 		size: {
 			control: "select",
-			options: ["small", "medium", "large"],
+			options: ["small", "medium", "large"] as ContainerSize[],
+			description: "The size of the container",
 		},
 	},
 };
@@ -36,26 +38,26 @@ export const Default: Story = {
 				Container content
 			</IContainer>`,
 	}),
-	args: {},
+	args: {} satisfies Partial<IContainerProps>,
 };
 
 export const Small: Story = {
 	...Default,
 	args: {
 		size: "small",
-	},
+	} satisfies Partial<IContainerProps>,
 };
 
 export const Medium: Story = {
 	...Default,
 	args: {
 		size: "medium",
-	},
+	} satisfies Partial<IContainerProps>,
 };
 
 export const Large: Story = {
 	...Default,
 	args: {
 		size: "large",
-	},
+	} satisfies Partial<IContainerProps>,
 };

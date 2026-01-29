@@ -1,67 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { IButtonProps, IButtonEmits } from './IButton.types';
 
-const emit = defineEmits<{
-	(e: "click", event: MouseEvent): void;
-}>();
+const emit = defineEmits<IButtonEmits>();
 
 const props = withDefaults(
-	defineProps<{
-		/**
-		 * A color that has traffic light color base on the status
-		 */
-		color?: string;
-
-		/**
-		 * A site link that will conver the button to anchor
-		 */
-		href?: string;
-
-		/**
-		 * Make the circle that mostly used as floating action button.
-		 */
-		isCircle?: boolean;
-
-		/**
-		 * A modifier that will make the background to white with a border dashed
-		 */
-		isDashed?: boolean;
-
-		/**
-		 * Make the button unclickable and apply idle style color.
-		 */
-		isDisabled?: boolean;
-
-		/**
-		 * A modifier thet will make the background to white
-		 */
-		isOutline?: boolean;
-
-		/**
-		 * A modifier that will make the button border sharpless
-		 */
-		isRounded?: boolean;
-
-		/**
-		 * Make the button padding consistent
-		 */
-		isSquare?: boolean;
-
-		/**
-		 * Make the button look like a plain text.
-		 */
-		isText?: boolean;
-
-		/**
-		 * Increase or decrease the dimension and gutter of the button.
-		 */
-		size?: string;
-
-		/**
-		 * Label to describe the button that will be use on wcag attributes
-		 */
-		label: string;
-	}>(),
+	defineProps<IButtonProps>(),
 	{
 		color: 'default',
 		href: undefined,

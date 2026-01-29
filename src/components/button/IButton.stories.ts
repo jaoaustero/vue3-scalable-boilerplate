@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import IButton from "./IButton.vue";
+import type { IButtonProps, ButtonColor, ButtonSize } from "./IButton.types";
 
 const meta: Meta<typeof IButton> = {
 	title: "Atoms/Button",
@@ -16,56 +17,52 @@ const meta: Meta<typeof IButton> = {
 	argTypes: {
 		color: {
 			control: "select",
-			options: ["default", "primary", "secondary", "warning", "danger"],
+			options: ["default", "primary", "secondary", "warning", "danger"] as ButtonColor[],
+			description: "A color that has traffic light color base on the status",
 		},
 		href: {
 			control: "text",
+			description: "A site link that will convert the button to anchor",
 		},
 		isCircle: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "Make the circle that mostly used as floating action button",
 		},
 		isDashed: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "A modifier that will make the background to white with a border dashed",
 		},
 		isDisabled: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "Make the button unclickable and apply idle style color",
 		},
 		isOutline: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "A modifier that will make the background to white",
 		},
 		isRounded: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "A modifier that will make the button border sharpless",
 		},
 		isText: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "Make the button look like a plain text",
 		},
 		isSquare: {
-			active: {
-				control: "boolean",
-			},
+			control: "boolean",
+			description: "Make the button padding consistent",
 		},
 		size: {
 			control: "select",
-			options: ["small", "medium", "large"],
+			options: ["small", "medium", "large"] as ButtonSize[],
+			description: "Increase or decrease the dimension and gutter of the button",
 		},
 		label: {
 			control: "text",
+			description: "Label to describe the button that will be used on wcag attributes",
 		},
 		onClick: { action: "clicked" },
 	},
-	args: { title: "Default Button" },
 };
 
 export default meta;
@@ -85,7 +82,7 @@ export const DefaultButton: Story = {
 
 	args: {
 		label: "Default Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const PrimaryButton: Story = {
@@ -93,7 +90,7 @@ export const PrimaryButton: Story = {
 	args: {
 		color: "primary",
 		label: "Primary Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const SecondaryButton: Story = {
@@ -101,7 +98,7 @@ export const SecondaryButton: Story = {
 	args: {
 		color: "secondary",
 		label: "Secondary Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const WarningButton: Story = {
@@ -109,7 +106,7 @@ export const WarningButton: Story = {
 	args: {
 		color: "warning",
 		label: "Warning Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const DangerButton: Story = {
@@ -117,7 +114,7 @@ export const DangerButton: Story = {
 	args: {
 		color: "danger",
 		label: "Danger Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const LinkButton: Story = {
@@ -125,7 +122,7 @@ export const LinkButton: Story = {
 	args: {
 		href: "htts://google.com",
 		label: "Link Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const CircleButton: Story = {
@@ -133,7 +130,7 @@ export const CircleButton: Story = {
 	args: {
 		isCircle: true,
 		label: "Circle Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const DashedButton: Story = {
@@ -141,7 +138,7 @@ export const DashedButton: Story = {
 	args: {
 		isDashed: true,
 		label: "Dashed Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const OutlineButton: Story = {
@@ -149,7 +146,7 @@ export const OutlineButton: Story = {
 	args: {
 		isOutline: true,
 		label: "Outline Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const OutlinePrimaryButton: Story = {
@@ -158,7 +155,7 @@ export const OutlinePrimaryButton: Story = {
 		isOutline: true,
 		color: "primary",
 		label: "Outline Primary Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const RoundedButton: Story = {
@@ -166,7 +163,7 @@ export const RoundedButton: Story = {
 	args: {
 		isRounded: true,
 		label: "Rounded Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const TextButton: Story = {
@@ -174,7 +171,7 @@ export const TextButton: Story = {
 	args: {
 		isText: true,
 		label: "Text Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const SmallButton: Story = {
@@ -182,7 +179,7 @@ export const SmallButton: Story = {
 	args: {
 		size: "small",
 		label: "Small Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const MediumButton: Story = {
@@ -190,7 +187,7 @@ export const MediumButton: Story = {
 	args: {
 		size: "medium",
 		label: "Medium Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };
 
 export const LargeButton: Story = {
@@ -198,5 +195,5 @@ export const LargeButton: Story = {
 	args: {
 		size: "large",
 		label: "Large Button",
-	},
+	} satisfies Partial<IButtonProps>,
 };

@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { IContainerProps } from './IContainer.types';
 
 const props = withDefaults(
-	defineProps<{
-		/**
-		 * The size of the container
-		 * @values small, medium, large
-		 */
-		size?: string;
-	}>(),
+	defineProps<IContainerProps>(),
 	{
 		size: undefined,
 	}

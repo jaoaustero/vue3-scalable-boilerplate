@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import type { IBadgeProps } from './IBadge.types';
+
 const props = withDefaults(
-	defineProps<{
-		count: number;
-	}>(),
+	defineProps<IBadgeProps>(),
 	{
-		count : 0,
+		count: 0,
 	},
 );
 </script>
