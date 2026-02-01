@@ -1,0 +1,54 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Divider
+ * Description:     Create a block element as division of section
+ *
+ * Component:       `#{$prefix}-divider`
+ *
+ * Modifiers:       `#{$prefix}-divider-large`
+ *
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+
+$divider-padding-horizontal:                margin(small) !default;
+$divider-padding-vertical:                  margin(xsmall) !default;
+
+$divider-color:                             color(emphasis) !default;
+$divider-font-size:                         font-size(small) !default;
+
+$divider-margin:                            margin(global) !default;
+
+
+/* ============================================================
+ * Component: Divider
+ * ============================================================ */
+.#{$prefix}divider {
+	display: block;
+	box-sizing: border-box;
+
+	padding: $divider-padding-vertical $divider-padding-horizontal;
+
+	font-size: $divider-font-size;
+	color: $divider-color;
+}
+
+* + .#{$prefix}divider {
+	margin-top: $divider-margin;
+}
+
+
+/* Modifier
+ * ============================================================ */
+.#{$prefix}divider-dashed {
+	border-style: dashed;
+}
+
+.#{$prefix}divider-dotted {
+	border-style: dotted;
+}

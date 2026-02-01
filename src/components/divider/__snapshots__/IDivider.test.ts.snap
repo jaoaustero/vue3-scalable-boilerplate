@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IDivider > Should combine dashed and title modifiers 1`] = `"<div class="i-divider i-divider-dashed">Dashed Title</div>"`;
+
+exports[`IDivider > Should combine dotted and title modifiers 1`] = `"<div class="i-divider i-divider-dotted">Dotted Title</div>"`;
+
+exports[`IDivider > Should display title text when provided 1`] = `"<div class="i-divider">My Title</div>"`;
+
+exports[`IDivider > Should render as div when title is provided 1`] = `"<div class="i-divider">Section Title</div>"`;
+
+exports[`IDivider > Should set a dashed modifier class name 1`] = `"<hr class="i-divider i-divider-dashed">"`;
+
+exports[`IDivider > Should set a dotted modifier class name 1`] = `"<hr class="i-divider i-divider-dotted">"`;
+
+exports[`IDivider > Should set default attributes, element and class 1`] = `"<hr class="i-divider">"`;
