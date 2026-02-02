@@ -1,0 +1,118 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Dropdown
+ * Description:     Component to create dropdown menus
+ *
+ * Component:       `#{$prefix}dropdown`
+ *
+ * Sub-object:      `#{$prefix}dropdown-menu`
+ *
+ * Modifiers:       `#{$prefix}dropdown-menu-left`
+ *                  `#{$prefix}dropdown-menu-right`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$dropdown-max-width: 100% !default;
+
+$dropdown-menu-z-index: layer(dropdown) !default;
+$dropdown-menu-min-width: 9.375rem !default;
+$dropdown-menu-max-width: 12.5rem !default;
+$dropdown-menu-padding: gutter(small) !default;
+$dropdown-menu-background: theme-color(inverse) !default;
+$dropdown-menu-color: text-color(default) !default;
+$dropdown-menu-margin: margin(small) !default;
+$dropdown-menu-offset-top: margin(large) !default;
+
+$dropdown-menu-box-shadow: box-shadow(medium) !default;
+
+
+/* ============================================================
+ * Component: Dropdown
+ * ============================================================ */
+/*
+ * 1. Container fit it's content
+ * 2. Create position context
+ * 3. Prevent content overflow
+ * 4. Behave like most inline-block elements
+ */
+.#{$prefix}dropdown {
+	/* 1 */
+	display: inline-block;
+
+	/* 2 */
+	position: relative;
+
+	/* 3 */
+	max-width: $dropdown-max-width;
+
+	/* 4 */
+	vertical-align: middle;
+}
+
+
+/* Menu
+ * ============================================================ */
+/*
+ * 1. Hide by default
+ * 2. Set position
+ * 3. Set a default width
+ * 4. Style
+ */
+.#{$prefix}dropdown-menu {
+	/* 1 */
+	display: none;
+
+	/* 2 */
+	position: absolute;
+	top: $dropdown-menu-offset-top;
+	z-index: $dropdown-menu-z-index;
+
+	/* 3 */
+	box-sizing: border-box;
+	min-width: $dropdown-menu-min-width;
+	max-width: $dropdown-menu-max-width;
+
+	/* 4 */
+	padding: $dropdown-menu-padding;
+	background-color: $dropdown-menu-background;
+	color: $dropdown-menu-color;
+	box-shadow: $dropdown-menu-box-shadow;
+}
+
+// Show dropdown
+.#{$prefix}dropdown-menu.#{$prefix}open {
+	display: block;
+}
+
+
+/* Direction modifiers
+ * ============================================================ */
+
+.#{$prefix}dropdown-menu-right {
+	right: 0;
+}
+
+.#{$prefix}dropdown-menu-left {
+	left: 0;
+}
+
+
+/* Animation modifiers
+ * ============================================================ */
+.#{$prefix}dropdown-slide-fade-enter-active,
+.#{$prefix}dropdown-slide-fade-leave-active {
+	transition: all .3s ease-in-out;
+}
+
+.#{$prefix}dropdown-slide-fade-enter-from,
+.#{$prefix}dropdown-slide-fade-leave-to {
+	transform: translateY(10px);
+	opacity: 0;
+}

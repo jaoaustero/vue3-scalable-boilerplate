@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IDropdown Component > Should have button class and menu list as child components 1`] = `
+"<div class="i-dropdown"><button>Dropdown</button>
+  <transition-stub name="i-dropdown-slide-fade" appear="false" persisted="false" css="true">
+    <div class="i-dropdown-menu i-open">
+      <ul>
+        <li>Option 1</li>
+        <li>Option 2</li>
+      </ul>
+    </div>
+  </transition-stub>
+</div>"
+`;
+
+exports[`IDropdown Component > Should set default element and classes 1`] = `
+"<div class="i-dropdown">
+  <transition-stub name="i-dropdown-slide-fade" appear="false" persisted="false" css="true">
+    <!--v-if-->
+  </transition-stub>
+</div>"
+`;
+
+exports[`IDropdown Component > Should set open class modifier 1`] = `
+"<div class="i-dropdown">
+  <transition-stub name="i-dropdown-slide-fade" appear="false" persisted="false" css="true">
+    <div class="i-dropdown-menu i-open"></div>
+  </transition-stub>
+</div>"
+`;
+
+exports[`IDropdown Component > Should set position class modifier 1`] = `
+"<div class="i-dropdown">
+  <transition-stub name="i-dropdown-slide-fade" appear="false" persisted="false" css="true">
+    <div class="i-dropdown-menu i-open i-dropdown-menu-right"></div>
+  </transition-stub>
+</div>"
+`;
