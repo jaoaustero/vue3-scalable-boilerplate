@@ -1,0 +1,48 @@
+---
+applyTo: "src/components/**/*"
+---
+
+# Component Guidelines
+
+## Component Structure
+- New components must include `.vue`, `.scss`, `.stories.ts`, and `.test.ts` in the same directory.
+- Use `i-` as the class prefix in templates and styles (e.g., `i-button`).
+- Prefer the existing base SCSS utilities from `src/scss/base` when building layouts.
+
+## TypeScript Types Conventions
+- Create a `.types.ts` file for each component using the naming convention `ComponentName.types.ts` (e.g., `IButton.types.ts`).
+- Define prop types as interfaces (e.g., `ComponentNameProps`).
+- Define emit types as interfaces (e.g., `ComponentNameEmits`).
+- Export string literal union types for enum-like values (e.g., `type ComponentNameSize = "small" | "large"`).
+- Import and use these types in the component `.vue` file with `defineProps<ComponentNameProps>()` and `defineEmits<ComponentNameEmits>()`.
+- Import and use type definitions in `.stories.ts` files for type-safe options arrays.
+- Add JSDoc comments to all exported types and interfaces for better IDE documentation.
+
+
+## SCSS Conventions
+- Always pull values from `src/scss/helpers/_variables.scss` via helper functions.
+- Every component SCSS must start with a variables block (like `IButton.scss`).
+- Document classes and modifiers in a header block at the top of the file.
+- Use section comments to divide modifiers (e.g., `/* Outline modifiers */`).
+- Avoid nesting; prefer flat selectors and combined classes (e.g., `.i-button-circle.i-button-large`).
+- Use functions from `src/scss/functions` and mixins from `src/scss/mixins` when creating styles.
+- Avoid DRY: reuse variables, mixins, and shared utilities.
+
+## Vue Conventions
+- Use `@` alias for imports (rooted at `src/`).
+- Keep class names in templates aligned with SCSS definitions and modifiers.
+
+## Stories
+- Stories must cover common variants (default, size, status, modifiers).
+- Provide required props (e.g., `size`) via `args` defaults when needed.
+
+## Tests
+- Use Vitest + Vue Test Utils.
+- Test default render, modifiers, and events.
+- Keep test descriptions starting with "Should".
+
+# Node 24.11.1 Compatibility
+
+- When installing or upgrading dependencies, verify package engines support Node `24.11.1`.
+- Use `nvm use 24.11.1` before running `npm install` or `npm run` commands.
+- If a package requires a higher Node version, downgrade it to the latest compatible release.
