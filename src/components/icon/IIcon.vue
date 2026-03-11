@@ -1,14 +1,29 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import type { IIconProps, IIconName } from "./IIcon.types";
+import { type IIconName, type IIconSize } from "./IIcon.types";
 
 defineOptions({
 	name: "IIcon",
 });
 
 const props = withDefaults(
-	defineProps<IIconProps>(),
+	defineProps<{
+		/**
+		 * The icon name that matches an SVG asset.
+		 */
+		type: IIconName;
+
+		/**
+		 * A size modifier that increases or decreases the icon size.
+		 */
+		size?: IIconSize;
+
+		/**
+		 * Accessible label for the icon.
+		 */
+		label?: string;
+	}>(),
 	{
 		size: undefined,
 		label: undefined,

@@ -1,0 +1,168 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Radio button
+ * Description:     Display radio button input.
+ *
+ * Component:       `#{$prefix}radio`
+ *
+ * Container:       `#{$prefix}radio-container`
+ *
+ * Sub-component:   `#{$prefix}checkmark`
+ *                  `#{$prefix}label`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$radio-form-field-label-color: color(grey-1) !default;
+$radio-form-field-label-font: font-weight(bold) font-size(small) font(family) !default;
+
+$radio-padding: padding(default) !default;
+$radio-margin: margin(small)!default;
+$radio-border-radius: border(radius-rounded) !default;
+$radio-border-color: color(grey-3) !default;
+$radio-border-width: border(width) !default;
+$radio-font-color: color(grey-3);
+$radio-size: 16px !default;
+
+$radio-checkmark-size: 8px !default;
+$radio-checkmark-color: color(white-1) !default;
+$radio-checkmark-width: border(width) !default;
+$radio-checkmark-background-checked: color(green-1);
+$radio-checkmark-border-color-checked: color(green-1);
+$radio-checkmark-backround-disable: color(grey-10);
+
+$radio-label-color: color(grey-1) !default;
+$radio-label-color-disabled: color(grey-6) !default;
+$radio-label-font-weight: font-weight(regular) !default;
+$radio-label-font-size: font-size(small) !default;
+$radio-label-font-family: font(family) !default;
+
+
+/* ============================================================
+ * Component: Radio Button
+ * ============================================================ */
+.#{$prefix}form-field-label {
+	color: $radio-form-field-label-color;
+	font: $radio-form-field-label-font;
+}
+
+body.#{$prefix}rtl .#{$prefix}form-field-label {
+	text-align: right;
+}
+
+.#{$prefix}radio-container {
+	display: block;
+	position: relative;
+	padding-left: $radio-padding;
+	margin: $radio-margin;
+
+	cursor: pointer;
+
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+
+// RTL support
+body.#{$prefix}rtl .#{$prefix}radio-container  {
+	padding-left: 0;
+	padding-right: 2rem;
+	text-align: right;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.#{$prefix}radio-container .#{$prefix}checkmark {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	height: $radio-size;
+	width: $radio-size;
+
+	border: $radio-checkmark-width solid $radio-border-color;
+	border-radius: $radio-border-radius;
+}
+
+
+// RTL support
+body.#{$prefix}rtl .#{$prefix}radio-container .#{$prefix}checkmark {
+	left: auto;
+	right: 0;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio ~ .#{$prefix}checkmark {
+	border: $radio-checkmark-width solid $radio-border-color;
+}
+
+.#{$prefix}radio-container:hover .#{$prefix}radio ~ .#{$prefix}checkmark {
+	background-color: $radio-checkmark-backround-disable;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio[disabled] ~ .#{$prefix}checkmark {
+	background: $radio-checkmark-backround-disable;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio[disabled] {
+	border-color: $radio-border-color;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio:checked ~ .#{$prefix}checkmark {
+	background: $radio-checkmark-background-checked;
+	background-color: var(--i-header-background-color);
+
+	border-color: $radio-checkmark-border-color-checked;
+	border-color: var(--i-header-background-color);
+}
+
+.#{$prefix}radio-container .#{$prefix}checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+.#{$prefix}radio-container .#{$prefix}radio:checked ~ .#{$prefix}checkmark:after {
+	display: block;
+}
+
+/*
+ * 1. Alignment
+ * 2. Style
+ */
+.#{$prefix}radio-container .#{$prefix}checkmark:after {
+	/* 1 */
+	margin: auto;
+	text-align: center;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* 2 */
+	border-radius: $radio-border-radius;
+	color: $radio-checkmark-color;
+	background: $radio-checkmark-color;
+	width: $radio-checkmark-size;
+	height: $radio-checkmark-size;
+}
+
+.#{$prefix}radio-container .#{$prefix}form-label {
+	color: $radio-label-color;
+	font: font-weight(regular) font-size(small) font(family);
+}
+
+.#{$prefix}radio-container .#{$prefix}radio[disabled] ~ .#{$prefix}form-label {
+	color: $radio-label-color-disabled;
+}

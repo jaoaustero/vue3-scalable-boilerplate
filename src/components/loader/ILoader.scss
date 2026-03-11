@@ -1,0 +1,253 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+/* ============================================================
+ * Name:            Loader
+ * Description:     Components to create loader shimmering
+ *
+ * Component:       `#{$prefix}loader`
+ *
+ * Sub-components:  `#{$prefix}loader-bar`
+ *                  `#{$prefix}loader-icon`
+ *
+ * Modifiers:       `#{$prefix}loader-bar-xsmall`
+ *                  `#{$prefix}loader-bar-small`
+ *                  `#{$prefix}loader-bar-medium`
+ *                  `#{$prefix}loader-bar-large`
+ *                  `#{$prefix}loader-bar-xlarge`
+ *                  `#{$prefix}loader-icon-xsmall`
+ *                  `#{$prefix}loader-icon-small`
+ *                  `#{$prefix}loader-icon-medium`
+ *                  `#{$prefix}loader-icon-large`
+ *                  `#{$prefix}loader-icon-xlarge`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$loader-border-radius: border(radius) !default;
+
+$loader-background: color(grey-10) !default;
+
+$loader-bar-height-xs: 0.5rem !default;
+$loader-bar-height-s: 1rem !default;
+$loader-bar-height: 1.5rem !default;
+$loader-bar-height-m: 2rem !default;
+$loader-bar-height-l: 2.5rem !default;
+$loader-bar-height-xl: 3rem !default;
+
+$loader-icon-border-radius: 50% !default;
+
+$loader-icon-height-xs: 0.5rem !default;
+$loader-icon-width-xs: $loader-icon-height-xs !default;
+
+$loader-icon-height-s: 1rem !default;
+$loader-icon-width-s: $loader-icon-height-s !default;
+
+$loader-icon-height: 1.5rem !default;
+$loader-icon-width: $loader-icon-height !default;
+
+$loader-icon-height-m: 2rem !default;
+$loader-icon-width-m: $loader-icon-height-m !default;
+
+$loader-icon-height-l: 2.5rem !default;
+$loader-icon-width-l: $loader-icon-height-l !default;
+
+$loader-icon-height-xl: 3rem !default;
+$loader-icon-width-xl: $loader-icon-height-xl !default;
+
+$loader-avatar-border-radius: (border(radius) + 0.3125rem) !default;
+
+$loader-avatar-height-xs: 2rem !default;
+$loader-avatar-width-xs: $loader-avatar-height-xs !default;
+
+$loader-avatar-height-s: 2.5rem !default;
+$loader-avatar-width-s: $loader-avatar-height-s !default;
+
+$loader-avatar-height: 3rem !default;
+$loader-avatar-width: $loader-avatar-height !default;
+
+$loader-avatar-height-m: 3.5rem !default;
+$loader-avatar-width-m: $loader-avatar-height-m !default;
+
+$loader-avatar-height-l: 4rem !default;
+$loader-avatar-width-l: $loader-avatar-height-l !default;
+
+$loader-avatar-height-xl: 4.5rem !default;
+$loader-avatar-width-xl: $loader-avatar-height-xl !default;
+
+$loader-animation-background: linear-gradient(to right, color(grey-10) 8%, color(grey-9) 18%, color(grey-10) 33%) !default;
+$loader-animation-backgrouns-size: 62.5rem 6.5rem !default;
+
+
+/* ============================================================
+ * Component: Loader
+ * ============================================================ */
+/*
+ * 1. Display vertical center
+ * 2. Style
+ */
+.#{$prefix}loader {
+	position: relative;
+	box-sizing: border-box;
+
+	/* 1 */
+	display: inline-block;
+	vertical-align: middle;
+
+	/* 2 */
+	border-radius: $loader-border-radius;
+	background-color: $loader-background;
+	cursor: default;
+}
+
+
+/* Bar modifiers
+ * ============================================================ */
+.#{$prefix}loader-bar {
+	width: 100%;
+	height: $loader-bar-height;
+}
+
+.#{$prefix}loader-bar-xsmall {
+	width: 100%;
+	height: $loader-bar-height-xs;
+}
+
+.#{$prefix}loader-bar-small {
+	width: 100%;
+	height: $loader-bar-height-s;
+}
+
+.#{$prefix}loader-bar-medium {
+	width: 100%;
+	height: $loader-bar-height-m;
+}
+
+.#{$prefix}loader-bar-large {
+	width: 100%;
+	height: $loader-bar-height-l;
+}
+
+.#{$prefix}loader-bar-xlarge {
+	width: 100%;
+	height: $loader-bar-height-xl;
+}
+
+
+/* Icon modifiers
+ * ============================================================ */
+.#{$prefix}loader-icon {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width;
+	height: $loader-icon-height;
+}
+
+.#{$prefix}loader-icon-xsmall {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width-xs;
+	height: $loader-icon-height-xs;
+}
+
+.#{$prefix}loader-icon-small {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width-s;
+	height: $loader-icon-height-s;
+}
+
+.#{$prefix}loader-icon-medium {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width-m;
+	height: $loader-icon-height-m;
+}
+
+.#{$prefix}loader-icon-large {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width-l;
+	height: $loader-icon-height-l;
+}
+
+.#{$prefix}loader-icon-xlarge {
+	border-radius: $loader-icon-border-radius;
+	width: $loader-icon-width-xl;
+	height: $loader-icon-height-xl;
+}
+
+
+/* Avatar modifiers
+ * ============================================================ */
+ .#{$prefix}loader-avatar {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width;
+	height: $loader-avatar-height;
+}
+
+.#{$prefix}loader-avatar-xsmall {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width-xs;
+	height: $loader-avatar-height-xs;
+}
+
+.#{$prefix}loader-avatar-small {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width-s;
+	height: $loader-avatar-height-s;
+}
+
+.#{$prefix}loader-avatar-medium {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width-m;
+	height: $loader-avatar-height-m;
+}
+
+.#{$prefix}loader-avatar-large {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width-l;
+	height: $loader-avatar-height-l;
+}
+
+.#{$prefix}loader-avatar-xlarge {
+	border-radius: $loader-avatar-border-radius;
+	width: $loader-avatar-width-xl;
+	height: $loader-avatar-height-xl;
+}
+
+
+/* Animation
+ * ============================================================ */
+.#{$prefix}loader-animation {
+	animation-duration: 1s;
+	animation-fill-mode: none;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards !important;
+	animation-name: shimmerLeftToRight;
+	animation-timing-function: linear;
+	background: $loader-animation-background;
+	background-size: $loader-animation-backgrouns-size;
+	position: relative;
+	overflow: hidden;
+}
+
+@keyframes shimmerLeftToRight {
+	0% {
+		background-position: -29.25rem 0;
+	}
+	100% {
+		background-position: 29.25rem 0;
+	}
+}
+
+body.#{$prefix}rtl .#{$prefix}loader-animation {
+	animation-name: shimmerRightToLeft;
+}
+
+@keyframes shimmerRightToLeft {
+	0% {
+		background-position: 29.25rem 0;
+	}
+	100% {
+		background-position: -29.25rem 0;
+	}
+}

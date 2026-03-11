@@ -1,0 +1,463 @@
+@use "@/scss/helpers/variables" as *;
+@use "@/scss/functions" as fn;
+
+/* ============================================================
+ * Name:                Chat Bubble
+ * Description:         Component to create a bubble chat
+ *
+ * Component:           `#{$prefix}chat-bubble`
+ *
+ * Modifiers:           `#{$prefix}chat-bubble-images`
+ *                      `#{$prefix}chat-bubble-videos`
+ *                      `#{$prefix}chat-bubble-audios`
+ *                      `#{$prefix}chat-bubble-files`
+ *
+ * Adopt:               `#{$prefix}icon`
+ *                      `#{$prefix}link`
+ *
+ * State:               `#{$prefix}active`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$chat-bubble-padding: 0.75rem !default;
+$chat-bubble-background-color: $grey-9 !default;
+$chat-bubble-color: $black-1 !default;
+$chat-bubble-border-radius: 4px !default;
+
+$chat-bubble-child-margin-bottom: 0.5rem !default;
+
+$chat-bubble-active-background-color: $green-1 !default;
+$chat-bubble-active-color: $white-1 !default;
+
+$chat-bubble-element-border-radius: 4px !default;
+
+$chat-bubble-image-width-50: calc(50% - 5px) !default;
+$chat-bubble-image-margin-bottom: 10px !default;
+
+$chat-bubble-audio-height: 40px !default;
+
+$chat-bubble-files-list-margin-bottom: 0.5rem !default;
+$chat-bubble-files-list-border: 1px solid $white-1;
+
+
+/* ============================================================
+ * Component: Chat Bubble
+ * ============================================================ */
+/*
+ * 1. Create position context & content flow
+ * 2. Set border-box to include padding, border in the dimension
+ * 3. Add padding around the bubble
+ * 4. Style
+ */
+.#{$prefix}chat-bubble {
+	/* 1 */
+	position: relative;
+
+	/* 2 */
+	box-sizing: border-box;
+
+	/* 3 */
+	padding: $chat-bubble-padding;
+
+	/* 4 */
+	background-color: $chat-bubble-background-color;
+	color: $chat-bubble-color;
+	border-radius: $chat-bubble-border-radius;
+}
+
+/*
+ * Active
+ */
+.#{$prefix}chat-bubble.#{$prefix}active {
+	background-color: $chat-bubble-active-background-color;
+	color: $chat-bubble-active-color;
+}
+
+.#{$prefix}chat-bubble.#{$prefix}active .#{$prefix}timeago {
+	color: $chat-bubble-active-color;
+}
+
+/*
+ * Add margin on each child element.
+ */
+.#{$prefix}chat-bubble > * {
+	margin-top: $chat-bubble-child-margin-bottom;
+	margin-bottom: $chat-bubble-child-margin-bottom;
+}
+
+.#{$prefix}chat-bubble > *:first-child {
+	margin-top: 0;
+}
+
+.#{$prefix}chat-bubble > *:last-child {
+	margin-bottom: 0;
+}
+
+
+/* Default HTML elements
+ * ============================================================ */
+.#{$prefix}chat-bubble a,
+.#{$prefix}chat-bubble .#{$prefix}link {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.#{$prefix}chat-bubble ol,
+.#{$prefix}chat-bubble ul {
+	list-style-position: inside;
+}
+
+/**
+ * Nested unordered list
+ */
+.#{$prefix}chat-bubble ul {
+	list-style-type: disc;
+}
+
+.#{$prefix}chat-bubble ul > ul {
+	list-style-type: circle;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ul > ul > ul {
+	list-style-type: square;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ul > ul > ul > ul{
+	list-style-type: disc;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ul > ul > ul > ul > ul {
+	list-style-type: circle;
+	padding-left: 1rem;
+}
+
+/**
+ * Nested ordered list
+ */
+
+.#{$prefix}chat-bubble ol {
+	list-style-type: decimal;
+}
+
+.#{$prefix}chat-bubble ol > ol {
+	list-style-type: lower-alpha;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ol > ol > ol {
+	list-style-type: lower-roman;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ol > ol > ol > ol{
+	list-style-type: decimal;
+	padding-left: 1rem;
+}
+
+.#{$prefix}chat-bubble ol > ol > ol > ol > ol {
+	list-style-type: lower-alpha;
+	padding-left: 1rem;
+}
+
+/**
+ * Blockquote
+ */
+.#{$prefix}chat-bubble blockquote {
+	position: relative;
+	padding-left: 0.8rem;
+	font-style: normal;
+}
+
+/**
+ * Add horizontal bar same on slack
+ * blockquote design.
+ */
+.#{$prefix}chat-bubble blockquote:before,
+.#{$prefix}chat-bubble blockquote:after {
+	content : '';
+	position: absolute;
+
+	top: 0;
+	bottom: 0;
+	left: 0;
+
+	height: 100%;
+	width: 3px;
+	border-radius: 3px;
+
+	background-color: $grey-1;
+}
+
+.#{$prefix}chat-bubble code {
+	border: 1px solid $grey-7;
+	box-sizing: border-box;
+	border-radius: 4px;
+	padding: 0.3rem;
+
+	color: $grey-1;
+	color: var(--i-visitor-text-color);
+
+	background-color: #FFFFFF30;
+}
+
+.#{$prefix}chat-bubble pre {
+	border: 1px solid $grey-7;
+	border-radius: 4px;
+	padding: 0.5rem;
+
+	color: $grey-1;
+	color: var(--i-visitor-text-color);
+
+	background-color: #FFFFFF30;
+}
+
+/* Icon
+ * ============================================================ */
+.#{$prefix}chat-bubble .#{$prefix}icon {
+	color: $green-1;
+}
+
+.#{$prefix}chat-bubble.#{$prefix}active .#{$prefix}icon {
+	color: $white-1;
+}
+
+
+/* Link
+ * ============================================================ */
+.#{$prefix}chat-bubble.#{$prefix}active a,
+.#{$prefix}chat-bubble.#{$prefix}active .#{$prefix}link {
+	color: $white-1;
+}
+
+
+/* Reset
+ * ============================================================ */
+.#{$prefix}chat-bubble ul[class^="#{$prefix}chat-bubble-"] {
+	margin-left : 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+/* Images
+ * ============================================================ */
+.#{$prefix}chat-bubble-images {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-auto-rows: auto;
+	gap: 4px 4px;
+}
+
+/*
+ * 1. Use the dimension of the parent
+ * 2. scaled the image to maintain its aspect ratio while fitting within the container
+ * 3. Add pointer cursor
+ * 4. Style
+ */
+.#{$prefix}chat-bubble-images li > div {
+	height: 100%;
+	width: 100%;
+}
+
+.#{$prefix}chat-bubble-images li > img,
+.#{$prefix}chat-bubble-images li .#{$prefix}image  {
+	/* 1 */
+	width: 100%;
+	height: 100%;
+	max-width: initial;
+
+	/* 2 */
+	object-fit: cover;
+	object-position: center;
+
+	/* 3 */
+	cursor: pointer;
+
+	/* 4 */
+	border-radius: $chat-bubble-element-border-radius;
+}
+
+/* Grid
+ * ============================================================ */
+
+/**
+ * Single element
+ */
+.#{$prefix}grid-1 > li {
+	grid-area: 1/1/2/7;
+
+	height: 250px;
+	width: 100%;
+}
+
+/**
+ * Two elements
+ */
+.#{$prefix}grid-2 > li:nth-child(1) {
+	grid-area: 1/1/2/4;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-2 > li:nth-child(2) {
+	grid-area: 1/4/2/7;
+
+	height: 125px;
+	width: 100%;
+}
+
+/**
+ * Three elements
+ */
+.#{$prefix}grid-3 > li:nth-child(1) {
+	grid-area: 1/1/2/7;
+
+	height: 150px;
+	width: 100%;
+}
+
+.#{$prefix}grid-3 > li:nth-child(2) {
+	grid-area: 2/1/3/4;
+
+	height: 100px;
+	width: 100%;
+}
+
+.#{$prefix}grid-3 > li:nth-child(3) {
+	grid-area: 2/4/3/7;
+
+	height: 100px;
+	width: 100%;
+}
+
+/**
+ * Four elements
+ */
+.#{$prefix}grid-4 > li:nth-child(1) {
+	grid-area: 1/1/2/4;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-4 > li:nth-child(2) {
+	grid-area: 1/4/2/7;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-4 > li:nth-child(3) {
+	grid-area: 2/1/3/4;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-4 > li:nth-child(4) {
+	grid-area: 2/4/3/7;
+
+	height: 125px;
+	width: 100%;
+}
+
+/**
+ * Five elements
+ */
+.#{$prefix}grid-5 > li:nth-child(1) {
+	grid-area: 1/1/2/4;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-5 > li:nth-child(2) {
+	grid-area: 1/4/2/7;
+
+	height: 125px;
+	width: 100%;
+}
+
+.#{$prefix}grid-5 > li:nth-child(3) {
+	grid-area: 2/1/3/3;
+
+	height: 85px;
+	width: 100%;
+}
+
+.#{$prefix}grid-5 > li:nth-child(4) {
+	grid-area: 2/3/3/5;
+
+	height: 85px;
+	width: 100%;
+}
+
+.#{$prefix}grid-5 > li:nth-child(5) {
+	grid-area: 2/5/3/7;
+
+	height: 85px;
+	width: 100%;
+}
+
+
+/* Videos
+ * ============================================================ */
+.#{$prefix}chat-bubble-videos li {
+	border-radius: $chat-bubble-element-border-radius;
+	overflow: hidden;
+}
+
+
+/* Audio
+ * ============================================================ */
+.#{$prefix}chat-bubble-audios audio {
+	height: $chat-bubble-audio-height;
+	width: 100%;
+	border-radius: $chat-bubble-element-border-radius;
+	display: block;
+}
+
+/* Files
+ * ============================================================ */
+.#{$prefix}chat-bubble-files li {
+	margin-bottom: $chat-bubble-files-list-margin-bottom;
+}
+
+.#{$prefix}chat-bubble-files li:last-child {
+	margin-bottom: initial;
+}
+
+/**
+ * 1. Add border bottom
+ * 2. Remove default css underline
+ */
+.#{$prefix}chat-bubble-files li a,
+.#{$prefix}chat-bubble-audios li a {
+	/* 1 */
+	border-bottom: $chat-bubble-files-list-border;
+	border-color: var(--var-header-text-color);
+}
+
+/* 2 */
+.#{$prefix}chat-bubble-files li a,
+.#{$prefix}chat-bubble-audios li a {
+	text-decoration: none;
+}
+.#{$prefix}chat-bubble-files li a:hover,
+.#{$prefix}chat-bubble-audios li a:hover {
+	text-decoration: none;
+}
+
+/**
+ * Make the icon vertically aligned
+ */
+.#{$prefix}chat-bubble-files li i,
+.#{$prefix}chat-bubble-audios li i {
+	transform: rotateZ(-45deg);
+	margin-top: 1px;
+}

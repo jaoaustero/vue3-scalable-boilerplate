@@ -1,0 +1,157 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            List
+ * Description:     Display lists with items and nested support.
+ *
+ * Component:       `#{$prefix}list`
+ *
+ * Sub-component:   `#{$prefix}list > li`
+ *
+ * Type Modifiers:  `#{$prefix}list-striped`
+ *                  `#{$prefix}list-divider`
+ *
+ * Size Modifiers:  `#{$prefix}list-xsmall`
+ *                  `#{$prefix}list-small`
+ *                  `#{$prefix}list-medium`
+ *                  `#{$prefix}list-large`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$list-font-size: font-size(small) !default;
+$list-margin: 0 !default;
+$list-padding: 0 !default;
+$list-style: none !default;
+
+$list-item-padding: padding(small) !default;
+
+$list-nested-padding-left: padding(medium) !default;
+
+$list-item-xsmall-padding: padding(xsmall) !default;
+$list-item-small-padding: padding(small) !default;
+$list-item-medium-padding: padding(medium) !default;
+$list-item-large-padding: padding(large) !default;
+
+$list-striped-background: color(grey-10) !default;
+
+$list-divider-border-width: border(width) !default;
+$list-divider-border-color: color(grey-9) !default;
+
+
+/* ============================================================
+ * Component: List
+ * ============================================================ */
+.#{$prefix}list {
+	font-size: $list-font-size;
+	margin: $list-margin;
+	padding: $list-padding;
+	list-style: $list-style;
+}
+
+
+/* List Item
+ * ============================================================ */
+.#{$prefix}list > li {
+	padding: $list-item-padding;
+	box-sizing: border-box;
+}
+
+
+/* Nested list
+ * ============================================================ */
+.#{$prefix}list .#{$prefix}list {
+	padding-left: $list-nested-padding-left;
+}
+
+.#{$prefix}rtl .#{$prefix}list .#{$prefix}list {
+	padding-left: 0;
+	padding-right: $list-nested-padding-left;
+}
+
+
+/* Type modifiers
+ * ============================================================ */
+/*
+ * Striped
+ */
+.#{$prefix}list-striped > li:nth-child(odd) {
+	background-color: $list-striped-background;
+}
+
+/*
+ * Divider
+ */
+.#{$prefix}list-divider > li:not(:last-child) {
+	border-bottom: $list-divider-border-width solid $list-divider-border-color;
+}
+
+
+/* Size modifiers
+ * ============================================================ */
+/*
+ * Extra Small
+ */
+.#{$prefix}list-xsmall > li {
+	padding: $list-item-xsmall-padding;
+}
+
+.#{$prefix}list-xsmall .#{$prefix}list {
+	padding-left: calc(#{$list-item-xsmall-padding} + #{padding(small)});
+}
+
+.#{$prefix}rtl .#{$prefix}list-xsmall .#{$prefix}list {
+	padding-left: 0;
+	padding-right: calc(#{$list-item-xsmall-padding} + #{padding(small)});
+}
+
+/*
+ * Small
+ */
+.#{$prefix}list-small > li {
+	padding: $list-item-small-padding;
+}
+
+.#{$prefix}list-small .#{$prefix}list {
+	padding-left: calc(#{$list-item-small-padding} + #{padding(small)});
+}
+
+.#{$prefix}rtl .#{$prefix}list-small .#{$prefix}list {
+	padding-left: 0;
+	padding-right: calc(#{$list-item-small-padding} + #{padding(small)});
+}
+
+/*
+ * Medium
+ */
+.#{$prefix}list-medium > li {
+	padding: $list-item-medium-padding;
+}
+
+.#{$prefix}list-medium .#{$prefix}list {
+	padding-left: calc(#{$list-item-medium-padding} + #{padding(small)});
+}
+
+.#{$prefix}rtl .#{$prefix}list-medium .#{$prefix}list {
+	padding-left: 0;
+	padding-right: calc(#{$list-item-medium-padding} + #{padding(small)});
+}
+
+/*
+ * Large
+ */
+.#{$prefix}list-large > li {
+	padding: $list-item-large-padding;
+}
+
+.#{$prefix}list-large .#{$prefix}list {
+	padding-left: calc(#{$list-item-large-padding} + #{padding(small)});
+}
+
+.#{$prefix}rtl .#{$prefix}list-large .#{$prefix}list {
+	padding-left: 0;
+	padding-right: calc(#{$list-item-large-padding} + #{padding(small)});
+}

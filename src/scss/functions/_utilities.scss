@@ -41,6 +41,26 @@
 	@return null;
 }
 
+// Used in component padding
+@function padding($value) {
+	@if map.has-key($padding, $value) {
+		@return map.get($padding, $value);
+	}
+
+	@warn 'The key `#{$value}` is not available in the map';
+	@return null;
+}
+
+// Used in outline styles
+@function outline($value) {
+	@if map.has-key($outline, $value) {
+		@return map.get($outline, $value);
+	}
+
+	@warn 'The key `#{$value}` is not available in the map';
+	@return null;
+}
+
 // Control Height
 @function control-height($value) {
 	@if map.has-key($control-height, $value) {

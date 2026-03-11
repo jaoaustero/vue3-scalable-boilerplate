@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IInput Component > Should display required asterisk when isRequired is true 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="true" aria-placeholder="Input" aria-labelledby="test-input-id" value="" required=""><label class="i-form-label" for="test-input-id"><span>*</span> Input</label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should emit blur event when input loses focus 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should emit focus event when input is focused 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label i-active" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should emit update:modelValue when input changes 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should expose validate method 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should hide label when label prop is null or empty 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" value="" aria-label="Input field">
+  <!--v-if-->
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should not show error message when invalidType is empty 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should set a default element and class 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should set active class when value prop has data 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value="sample"><label class="i-form-label i-active" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should set aria attributes correctly 1`] = `"<div class="i-form-wrapper"><input class="i-input i-form-danger" placeholder="placeholder" role="input" id="test-input-id" aria-required="true" aria-placeholder="Email" aria-labelledby="test-input-id" value="" required="" aria-invalid="true"><label class="i-form-label i-text-red-1" for="test-input-id"><span>*</span> Email</label><small class="i-form-error-message i-text-regular-1"></small></div>"`;
+
+exports[`IInput Component > Should set error state colors and error message 1`] = `
+"<div class="i-form-wrapper"><input class="i-input i-form-danger" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value="" aria-invalid="true"><label class="i-form-label i-text-red-1" for="test-input-id">
+    <!--v-if--> Input
+  </label><small class="i-form-error-message i-text-regular-1">Error message</small></div>"
+`;
+
+exports[`IInput Component > Should set label text 1`] = `
+"<div class="i-form-wrapper"><input class="i-input" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should set size class modifier 1`] = `
+"<div class="i-form-wrapper"><input class="i-input i-input-medium" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`IInput Component > Should set success state color 1`] = `
+"<div class="i-form-wrapper"><input class="i-input i-form-success" placeholder="placeholder" role="input" id="test-input-id" aria-required="false" aria-placeholder="Input" aria-labelledby="test-input-id" value=""><label class="i-form-label i-text-green-1" for="test-input-id">
+    <!--v-if--> Input
+  </label>
+  <!--v-if-->
+</div>"
+`;

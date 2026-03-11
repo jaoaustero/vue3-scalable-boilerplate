@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ITooltip Directive > Should add i-tooltip class to the element 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should apply position class when position option is provided 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover bottom">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should cleanup tooltip elements on unmount 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should create tooltip arrow element 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should create tooltip hover element 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should display the tooltip text from data-text attribute 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover">Test tooltip<span class="i-tooltip-arrow"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should keep mouseover handler when isDynamic is true 1`] = `"<button data-text="Dynamic tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover" style="left: -1px; top: 4px;">Dynamic tooltip<span class="i-tooltip-arrow" style="left: -7px;"></span></span></button>"`;
+
+exports[`ITooltip Directive > Should trigger mouseover handler 1`] = `"<button data-text="Test tooltip" class="i-tooltip"> Hover me <span class="i-tooltip-hover" style="left: -1px; top: 4px;">Test tooltip<span class="i-tooltip-arrow" style="left: -7px;"></span></span></button>"`;

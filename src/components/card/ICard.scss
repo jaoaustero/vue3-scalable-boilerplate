@@ -1,0 +1,120 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:                Card
+ * Description:         Component to create a box content containers
+ *
+ * Component:           `#{$prefix}card`
+ *
+ * Modifiers:           `#{$prefix}card-default`
+ *                      `#{$prefix}card-primary`
+ *                      `#{$prefix}card-inverse`
+ *                      `#{$prefix}card-xsmall`
+ *                      `#{$prefix}card-small`
+ *                      `#{$prefix}card-medium`
+ *                      `#{$prefix}card-large`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$card-border-radius: border(radius) !default;
+$card-padding-horizontal: padding(default) !default;
+$card-padding-vertical: padding(default) !default;
+
+$card-default-background: color(grey-10) !default;
+$card-default-color: color(grey-3) !default;
+
+$card-primary-background: color(green-1) !default;
+$card-primary-color: color(white-1) !default;
+
+$card-inverse-background: color(white-1) !default;
+$card-inverse-color: color(grey-3) !default;
+
+$card-xsmall-padding-horizontal: padding(xsmall) !default;
+$card-xsmall-padding-vertical: padding(xsmall) !default;
+
+$card-small-padding-horizontal: padding(small) !default;
+$card-small-padding-vertical: padding(small) !default;
+
+$card-medium-padding-horizontal: padding(medium) !default;
+$card-medium-padding-vertical: padding(medium) !default;
+
+$card-large-padding-horizontal: padding(large) !default;
+$card-large-padding-vertical: padding(large) !default;
+
+
+/* ============================================================
+ * Component: Card
+ * ============================================================ */
+/*
+ * 1. Apply all padding and border inside
+ * 2. Add padding around the card
+ * 3. Style
+ */
+.#{$prefix}card {
+	position: relative;
+
+	/* 1 */
+	box-sizing: border-box;
+
+	/* 2 */
+	padding: $card-padding-vertical $card-padding-horizontal;
+
+	/* 3 */
+	background-color: $card-default-background;
+	color: $card-default-color;
+	border-radius: $card-border-radius;
+}
+
+
+/* Color modifiers
+ * ============================================================ */
+.#{$prefix}card-default {
+	background-color: $card-default-background;
+	color: $card-default-color;
+}
+
+.#{$prefix}card-inverse {
+	background-color: $card-inverse-background;
+	color: $card-inverse-color;
+}
+
+.#{$prefix}card-primary {
+	background-color: $card-primary-background;
+	background-color: var(--i-header-background-color);
+	color: $card-primary-color;
+	color: var(--i-header-text-color);
+}
+
+
+/* Size modifiers
+ * ============================================================ */
+.#{$prefix}card-xsmall {
+	padding: $card-xsmall-padding-vertical $card-xsmall-padding-horizontal;
+}
+
+/*
+ * Small
+ */
+.#{$prefix}card-small {
+	padding: $card-small-padding-vertical $card-small-padding-horizontal;
+}
+
+/*
+ * Medium
+ */
+.#{$prefix}card-medium {
+	padding: $card-medium-padding-vertical $card-medium-padding-horizontal;
+}
+
+/*
+ * Large
+ */
+.#{$prefix}card-large {
+	padding: $card-large-padding-vertical $card-large-padding-horizontal;
+}

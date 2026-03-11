@@ -4,13 +4,17 @@
 
 @use "../helpers" as *;
 
-// Text colors
+// Text colors (with fallback to component color map)
 @function color($value) {
 	@if map.has-key($text-color, $value) {
 		@return map.get($text-color, $value);
 	}
 
-	@warn 'The key `#{$value}` is no available in the map';
+	@if map.has-key($color, $value) {
+		@return map.get($color, $value);
+	}
+
+	@warn 'The key `#{$value}` is not available in the map';
 	@return null;
 }
 

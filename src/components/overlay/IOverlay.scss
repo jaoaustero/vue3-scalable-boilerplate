@@ -1,0 +1,181 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:                Overlay
+ * Description:         Styles for overlay
+ *
+ * Component:           `#{$prefix}overlay`
+ *                      `#{$prefix}overlay-title`
+ *
+ * Sub-component:       `#{$prefix}overlay-header`
+ *                      `#{$prefix}overlay-header-left`
+ *                      `#{$prefix}overlay-body`
+ *
+ * Adopts:              `#{$prefix}button`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$overlay-background: color(white-1) !default;
+$overlay-border: border(width) solid color(grey-9) !default;
+
+$overlay-header-background-color: color(green-1) !default;
+$overlay-header-padding-vertical: padding(small) !default;
+$overlay-header-padding-horizontal: padding(small) !default;
+
+$overlay-title-margin-left: margin(xsmall) !default;
+$overlay-title-text-color: color(white-1) !default;
+$overlay-title-font-size: fontSize(medium) !default;
+$overlay-title-line-height: lineHeight(small) !default;
+$overlay-title-font-weight: fontWeight(regular) !default;
+
+$overlay-button-height: 1.875rem !default;
+$overlay-button-width: 2rem !default;
+
+$overlay-z-index: layer(overlay) !default;
+
+
+/* ============================================================
+ * Component: Overlay
+ * ============================================================ */
+/*
+ * 1. Set position
+ * 2. Hide by default
+ * 3. Adapt the dimension
+ * 4. Style
+ */
+.#{$prefix}overlay {
+	/* 1 */
+	position: fixed;
+	inset: 0;
+	z-index: $overlay-z-index;
+	left: 0;
+	right: 0;
+
+	/* 2 */
+	top: 100%;
+
+	/* 3 */
+	height: 100%;
+	width: 100%;
+
+	/* 4 */
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	background-color: $overlay-background;
+	border: $overlay-border;
+	transition: top 0.3s ease-in-out;
+	overflow: hidden;
+}
+
+
+/*
+ * Show the overlay
+ */
+.#{$prefix}overlay.#{$prefix}open {
+	top: 0;
+}
+
+
+/* Section modifiers
+ * ============================================================ */
+/*
+ * 1. Adapt parent width
+ * 2. Display horizontal center
+ * 3. Style
+ */
+.#{$prefix}overlay .#{$prefix}overlay-header {
+	/* 1 */
+	width: 100%;
+
+	/* 2 */
+	display: flex;
+	align-items: center;
+
+	/* 3 */
+	box-sizing: border-box;
+	background-color: $overlay-header-background-color;
+	background-color: var(--i-header-background-color);
+	padding: $overlay-header-padding-vertical $overlay-header-padding-horizontal;
+	z-index: ($overlay-z-index + 1);
+}
+
+/**
+ * 1. Display inline and horizontal center
+ * 2. Hide all elements that will exists on the container.
+ */
+.#{$prefix}overlay-header .#{$prefix}overlay-header-left {
+	/* 1 */
+	display: flex;
+	align-items: center;
+
+	/* 2 */
+	overflow: hidden;
+}
+
+
+/*
+ * 1. Consume all left spaces
+ * 2. Make the overflow vertical scrollable
+ * 3. Style
+ */
+.#{$prefix}overlay .#{$prefix}overlay-body {
+	/* 1 */
+	flex: 1;
+
+	/* 2 */
+	overflow-y: auto;
+
+	/* 3 */
+	box-sizing: border-box;
+}
+
+
+/* Title modifier
+ * ============================================================ */
+/*
+ * 1. Hide characters that overlaps on the width
+ * 2. Style
+ */
+.#{$prefix}overlay-title {
+	/* 1 */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	/* 2 */
+	font-size: $overlay-title-font-size;
+	line-height: $overlay-title-line-height;
+	font-weight: $overlay-title-font-weight;
+	margin-left: $overlay-title-margin-left;
+	color: $overlay-title-text-color;
+	color: var(--i-header-text-color);
+}
+
+
+/* Buttons
+ * ============================================================ */
+.#{$prefix}overlay-header .#{$prefix}button {
+	/* 1 */
+	padding: 0;
+
+	/* 2 */
+	height: $overlay-button-height;
+	width: $overlay-button-width;
+
+	/* 3 */
+	flex: none;
+	background-color: transparent;
+	border: none;
+	transition: background 0.15s ease-in-out;
+}
+
+.#{$prefix}overlay-header .#{$prefix}button:hover,
+.#{$prefix}overlay-header .#{$prefix}button:focus {
+	border: none;
+	background-color: rgba(255, 255, 255, 0.2);
+}

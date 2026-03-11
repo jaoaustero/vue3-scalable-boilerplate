@@ -1,0 +1,163 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Checkbox button
+ * Description:     Display checkbox button input.
+ *
+ * Component:       `#{$prefix}checkbox`
+ *
+ * Container:       `#{$prefix}checkbox-container`
+ *
+ * Sub-component:   `#{$prefix}label`
+ *
+ * State:			`#{$prefix}checkmark`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$checkbox-form-field-label-color: color(grey-1) !default;
+$checkbox-form-field-label-font: font-weight(bold) font-size(small) font(family) !default;
+
+$checkbox-padding: 1.3rem;
+$checkbox-margin: margin(small) !default;
+$checkbox-border-radius: 2px !default;
+$checkbox-border-color: color(grey-3) !default;
+$checkbox-border-width: border(width) !default;
+$checkbox-font-color: color(grey-3);
+$checkbox-size: 1rem !default;
+$checkbox-color: color(green-1) !default;
+$checkbox-background: color(green-1) !default;
+
+$checkbox-checkmark-size: 0.5rem !default;
+$checkbox-checkmark-color: color(white-1) !default;
+$checkbox-checkmark-background: color(white-1) !default;
+$checkbox-checkmark-width: border(width) !default;
+$checkbox-checkmark-background-checked: color(green-1) !default;
+$checkbox-checkmark-border-color-checked: color(green-1) !default;
+$checkbox-checkmark-backround-disable: color(grey-10) !default;
+$checkbox-checkmark-checked-color: color(grey-3);
+
+$checkbox-label-color: color(grey-1) !default;
+$checkbox-label-color-disabled: color(grey-3) !default;
+$checkbox-label-font-weight: font-weight(regular) !default;
+$checkbox-label-font-size: font-size(small) !default;
+$checkbox-label-font-family: font(family) !default;
+
+
+/* ============================================================
+ * Component: Checkbox
+ * ============================================================ */
+.#{$prefix}form-field-label {
+	color: $checkbox-form-field-label-color;
+	font: $checkbox-form-field-label-font;
+}
+
+body.#{$prefix}rtl .#{$prefix}form-field-label {
+	text-align: right;
+}
+
+.#{$prefix}checkbox-container {
+	display: block;
+	position: relative;
+	padding-left: $checkbox-padding;
+	margin: $checkbox-margin;
+	cursor: pointer;
+
+	user-select: none;
+}
+
+body.#{$prefix}rtl .#{$prefix}checkbox-container {
+	padding-right: 2rem;
+	padding-left: 0;
+	text-align: right;
+}
+
+.#{$prefix}checkbox-container .#{$prefix}checkbox {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/*
+ * 1. Position
+ * 2. Size
+ * 3. Style
+ */
+.#{$prefix}checkbox-container .#{$prefix}checkmark {
+	/* 1 */
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	/* 2 */
+	height: $checkbox-size;
+	width: $checkbox-size;
+
+	/* 3 */
+	border: $checkbox-border-width solid $checkbox-border-color;
+	border-radius: $checkbox-border-radius;
+	background: $checkbox-checkmark-background;
+}
+
+body.#{$prefix}rtl .#{$prefix}checkbox-container .#{$prefix}checkmark {
+	right: 0;
+	left: auto;
+}
+
+.#{$prefix}checkbox-container:hover .#{$prefix}checkbox ~ .#{$prefix}checkmark {
+	border-color: $checkbox-checkmark-checked-color;
+}
+
+.#{$prefix}checkbox-container .#{$prefix}checkbox:checked ~ .#{$prefix}checkmark {
+	background-color: $checkbox-background;
+	background-color: var(--i-header-background-color);
+	border-color: $checkbox-color;
+	border-color: var(--i-header-background-color);
+}
+
+.#{$prefix}checkbox-container .#{$prefix}checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.#{$prefix}checkbox-container .#{$prefix}checkbox:checked ~ .#{$prefix}checkmark:after {
+	display: block;
+}
+
+/*
+ * 1. Position
+ * 2. Size
+ * 3. Style
+ */
+.#{$prefix}checkbox-container .#{$prefix}checkmark:after {
+	/* 1 */
+	left: 5px;
+	top: 2px;
+
+	/* 2 */
+	width: 0.25rem;
+	height: 0.5rem;
+
+	/* 3 */
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+
+.#{$prefix}checkbox-container .#{$prefix}form-label {
+	color: $checkbox-label-color;
+	font: $checkbox-label-font-weight $checkbox-label-font-size $checkbox-label-font-family;
+}
+
+.#{$prefix}checkbox-container .#{$prefix}checkbox[disabled] ~ .#{$prefix}form-label {
+	color: $checkbox-label-color-disabled;
+}

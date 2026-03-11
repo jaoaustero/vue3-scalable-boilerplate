@@ -1,0 +1,100 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:                Flag
+ * Description:         Displays a square country/region flag SVG.
+ *                      Falls back to the UN flag on load error.
+ *
+ * Component:           `#{$prefix}flag`
+ *
+ * Modifiers:           `#{$prefix}flag-xsmall`
+ *						`#{$prefix}flag-small`
+ *						`#{$prefix}flag-medium`
+ *						`#{$prefix}flag-large`
+ *						`#{$prefix}flag-xlarge`
+ *						`#{$prefix}flag-xxlarge`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$flag-size: 1.5em !default;
+$flag-size-xsmall: 1em !default;
+$flag-size-small: 1.25em !default;
+$flag-size-medium: 1.5em !default;
+$flag-size-large: 2em !default;
+$flag-size-xlarge: 2.5em !default;
+$flag-size-xxlarge: 3em !default;
+
+$flag-border-radius: 2px !default;
+
+/* ============================================================
+ * Component: Flag
+ * ============================================================ */
+/*
+ * 1. Use inline-block so the flag flows with text.
+ * 2. Fix dimensions to maintain the square aspect ratio.
+ * 3. Align with surrounding text baselines.
+ * 4. Hide any overflow from the rounded corners.
+ */
+.#{$prefix}flag {
+	/* 1 */
+	display: inline-block;
+
+	/* 2 */
+	width: $flag-size;
+	height: $flag-size;
+
+	/* 3 */
+	vertical-align: middle;
+
+	/* 4 */
+	overflow: hidden;
+	border-radius: $flag-border-radius;
+
+	line-height: 1;
+}
+
+/*
+ * 1. Scale image to fully cover the container while preserving aspect ratio.
+ */
+.#{$prefix}flag img {
+	/* 1 */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Size modifiers
+ * ============================================================ */
+.#{$prefix}flag-xsmall {
+	width: $flag-size-xsmall;
+	height: $flag-size-xsmall;
+}
+
+.#{$prefix}flag-small {
+	width: $flag-size-small;
+	height: $flag-size-small;
+}
+
+.#{$prefix}flag-medium {
+	width: $flag-size-medium;
+	height: $flag-size-medium;
+}
+
+.#{$prefix}flag-large {
+	width: $flag-size-large;
+	height: $flag-size-large;
+}
+
+.#{$prefix}flag-xlarge {
+	width: $flag-size-xlarge;
+	height: $flag-size-xlarge;
+}
+
+.#{$prefix}flag-xxlarge {
+	width: $flag-size-xxlarge;
+	height: $flag-size-xxlarge;
+}

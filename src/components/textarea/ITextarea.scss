@@ -1,0 +1,31 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/shared/forms" as *;
+
+/* ============================================================
+ * Name:            Textarea
+ * Description:     Multi-line text input control.
+ *
+ * Component:       `#{$prefix}textarea`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$textarea-font-weight: font-weight(regular) !default;
+$textarea-font-size: font-size(small) !default;
+$textarea-font-family: font(family) !default;
+$textarea-border-radius: border(radius) !default;
+$textarea-min-height: 5rem !default;
+
+/* ============================================================
+ * Component: Textarea
+ * ============================================================ */
+.#{$prefix}textarea {
+	font-weight: $textarea-font-weight;
+	font-size: $textarea-font-size;
+	font-family: $textarea-font-family;
+	width: 100%;
+	border-radius: $textarea-border-radius;
+	resize: none;
+	min-height: $textarea-min-height;
+}

@@ -1,0 +1,28 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Time Ago
+ * Description:     Convert timestamp into human readable format
+ *
+ * Component:       `#{$prefix}timeago`
+ *
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$timeago-color: color(grey-2) !default;
+$timeago-font-weight: font-weight(regular);
+$timeago-font-size: font-size(xsmall);
+$timeago-font-family: font(family);
+
+/* ============================================================
+ * Component: Time Ago
+ * ============================================================ */
+.#{$prefix}timeago {
+	font: $timeago-font-weight $timeago-font-size $timeago-font-family;
+
+	color: $timeago-color;
+}

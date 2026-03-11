@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ICheckbox Component > Should expose validate method 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label">
+    <!--v-if-->
+  </label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="1"><span class="i-form-label">Label</span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ICheckbox Component > Should have disabled attribute when option has disabled set 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label">
+    <!--v-if-->
+  </label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="" disabled=""><span class="i-form-label"></span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ICheckbox Component > Should have no disabled attribute on input when option is not disabled 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label">
+    <!--v-if-->
+  </label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="1"><span class="i-form-label">Label</span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ICheckbox Component > Should render correctly 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label">
+    <!--v-if-->
+  </label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="1"><span class="i-form-label">Label</span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ICheckbox Component > Should render group label when label prop is set 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label">
+    <!--v-if--> How can we help?
+  </label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="1"><span class="i-form-label">Label</span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;
+
+exports[`ICheckbox Component > Should render required asterisk when isRequired is true 1`] = `
+"<div role="group" class="i-form-wrapper"><label class="i-form-label i-form-field-label"><span>*</span> Required field</label><label class="i-checkbox-container"><input type="checkbox" class="i-checkbox" value="1" required=""><span class="i-form-label">Label</span><span class="i-checkmark"></span></label>
+  <!--v-if-->
+</div>"
+`;

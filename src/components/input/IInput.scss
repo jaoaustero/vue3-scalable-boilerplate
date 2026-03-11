@@ -1,0 +1,58 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/shared/forms" as *;
+
+/* ============================================================
+ * Name:            Input
+ * Description:     A textbox modifier styles
+ *
+ * Component:       `#{$prefix}input`
+ *
+ * Modifiers:       `#{$prefix}input-medium`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$input-medium-height: controlHeight(large) - 0.625rem !default;
+$input-medium-padding-vertical: padding(small) !default;
+$input-medium-padding-horizontal: padding(default) !default;
+$input-medium-line-height: $input-medium-height !default;
+$input-medium-font-size: fontSize(medium) !default;
+
+$input-medium-label-font-size: fontSize(medium) !default;
+$input-medium-label-translate-y: 14px !default;
+$input-medium-label-translate-y-active: -0.625rem !default;
+
+/* ============================================================
+ * Component: Input
+ * ============================================================ */
+
+/* Size modifier
+ * ============================================================ */
+/*
+ * Medium
+ */
+.#{$prefix}input-medium {
+	height: $input-medium-height;
+	padding: $input-medium-padding-vertical $input-medium-padding-horizontal;
+	line-height: $input-medium-line-height;
+	font-size: $input-medium-font-size;
+}
+
+/*
+ * 1. Increase default font-size
+ * 2. increase default offset from Y axis
+ * 3. Overwrite offset Y-axis when active
+ */
+.#{$prefix}form-wrapper .#{$prefix}input.#{$prefix}input-medium + .#{$prefix}form-label {
+	/* 1 */
+	font-size: $input-medium-label-font-size;
+
+	/* 2 */
+	transform: translateY($input-medium-label-translate-y);
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input.#{$prefix}input-medium + .#{$prefix}form-label.#{$prefix}active {
+	/* 3 */
+	transform: translateY($input-medium-label-translate-y-active);
+}

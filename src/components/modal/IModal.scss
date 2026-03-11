@@ -1,0 +1,71 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:                Modal
+ * Description:         Styles for simple transparent modal
+ *
+ * Component:           `#{$prefix}modal`
+ *                      `#{$prefix}modal-content`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$modal-background: rgba(0, 0, 0, 0.3) !default;
+$modal-z-index: layer(modal) !default;
+
+
+/* ============================================================
+ * Component: Modal
+ * ============================================================ */
+/*
+ * 1. Set position
+ * 2. Hide by default
+ * 3. Adapt the dimension
+ * 4. Style
+ */
+.#{$prefix}modal {
+	/* 1 */
+	position: fixed;
+	inset: 0;
+	z-index: $modal-z-index;
+
+	/* 2 */
+	opacity: 0;
+	visibility: hidden;
+
+	/* 3 */
+	height: 100%;
+	width: 100%;
+
+	/* 4 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	background-color: $modal-background;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+/*
+ * Show the modal
+ */
+.#{$prefix}modal.#{$prefix}open {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+/*
+ * Modal content - transparent container for slot content
+ */
+.#{$prefix}modal-content {
+	max-width: 90%;
+	display: flex;
+	flex-direction: column;
+	max-height: 90vh;
+	overflow: auto;
+}

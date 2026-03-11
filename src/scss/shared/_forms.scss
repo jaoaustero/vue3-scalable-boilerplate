@@ -1,0 +1,240 @@
+@use "../helpers" as *;
+@use "../functions" as *;
+
+/* ============================================================
+ * Name:            Forms
+ * Description:     Styles for forms
+ *
+ * Component:       `#{$prefix}input`
+ *                  `#{$prefix}select`
+ *                  `#{$prefix}textarea`
+ *
+ * Modifiers:       `#{$prefix}form-medium`
+ *                  `#{$prefix}form-danger`
+ *                  `#{$prefix}form-success`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$form-height: control-height(medium) !default;
+$form-line-height: $form-height !default;
+$form-padding-vertical: padding(xsmall) !default;
+$form-padding-horizontal: padding(small) !default;
+$form-border-radius: border(radius) !default;
+$form-font-family: font(family) !default;
+
+$form-background: color(white-1) !default;
+$form-color: color(grey-1) !default;
+$form-border: border(width) solid border(color) !default;
+
+$form-focus-background: color(white-1) !default;
+$form-focus-border-color: color(green-1) !default;
+
+$form-disabled-background: color(white-1) !default;
+$form-disabled-color: color(grey-10) !default;
+$form-disabled-border-color: color(grey-10) !default;
+
+$form-placeholder-color: color(grey-1) !default;
+
+$form-success-color: color(green-1) !default;
+$form-success-border-color: color(green-1) !default;
+
+$form-danger-color: color(red-1) !default;
+$form-danger-border-color: color(red-1) !default;
+
+$form-label-color: color(grey-1) !default;
+$form-label-active-color: color(green-1) !default;
+
+$form-label-font-size: font-size(small) !default;
+$form-label-secondary-color: color(grey-2) !default;
+$form-label-padding: padding(xsmall) !default;
+$form-label-background: color(white-1);
+$form-label-margin-left: $form-padding-horizontal - $form-label-padding !default;
+
+$form-medium-height: calc(control-height(medium) + 0.625rem) !default;
+$form-medium-line-height: $form-height !default;
+$form-medium-font-size: font-size(medium) !default;
+
+/* ============================================================
+ * Component: Form
+ * ============================================================ */
+.#{$prefix}input,
+.#{$prefix}select,
+.#{$prefix}textarea {
+	box-sizing: border-box;
+	margin: 0;
+	border-radius: $form-border-radius;
+	font-family: $form-font-family;
+	font-size: $form-label-font-size;
+	-webkit-appearance: none;
+}
+
+body.#{$prefix}rtl .#{$prefix}input,
+body.#{$prefix}rtl .#{$prefix}select,
+body.#{$prefix}rtl .#{$prefix}textarea {
+	text-align: right;
+}
+
+.#{$prefix}input::-moz-placeholder,
+.#{$prefix}textarea::-moz-placeholder {
+	opacity: 1;
+}
+
+/* Input, select and textarea
+ * ============================================================ */
+.#{$prefix}input,
+.#{$prefix}select,
+.#{$prefix}textarea {
+	max-width: 100%;
+	width: 100%;
+	border: $form-border;
+	padding: $form-padding-vertical $form-padding-horizontal;
+	background: $form-background;
+	color: $form-color;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input {
+	z-index: 1;
+}
+
+.#{$prefix}input,
+.#{$prefix}select:not([multiple]):not([size]) {
+	height: $form-line-height;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/* Focus */
+.#{$prefix}input:focus,
+.#{$prefix}select:focus,
+.#{$prefix}textarea:focus {
+	outline: none;
+	background-color: $form-focus-background;
+	border-color: $form-focus-border-color;
+}
+
+.#{$prefix}input:focus-visible,
+.#{$prefix}select:focus-visible,
+.#{$prefix}textarea:focus-visible {
+	outline: none;
+	border: outline(width) solid outline(color);
+	box-shadow: outline(box-shadow);
+}
+
+/* Disabled */
+.#{$prefix}input:disabled,
+.#{$prefix}select:disabled,
+.#{$prefix}textarea:disabled {
+	background-color: $form-disabled-background;
+	color: $form-disabled-color;
+	border-color: $form-disabled-border-color;
+}
+
+/* Placeholder */
+.#{$prefix}input::placeholder,
+.#{$prefix}textarea::placeholder {
+	color: $form-placeholder-color;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input::placeholder,
+.#{$prefix}form-wrapper .#{$prefix}textarea::placeholder {
+	opacity: 0;
+	transition: all 0.15s ease-in-out
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input:focus::placeholder,
+.#{$prefix}form-wrapper .#{$prefix}textarea:focus::placeholder {
+	opacity: 1;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}form-label + .#{$prefix}input::placeholder,
+.#{$prefix}form-wrapper .#{$prefix}form-label + .#{$prefix}textarea::placeholder {
+	opacity: 0;
+	transition: all 0.15s ease-in-out;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}form-label + .#{$prefix}input:focus::placeholder,
+.#{$prefix}form-wrapper .#{$prefix}form-label + .#{$prefix}textarea:focus::placeholder {
+	opacity: 1;
+}
+
+/* Color modifier
+ * ============================================================ */
+.#{$prefix}form-success,
+.#{$prefix}form-success:focus {
+	color: $form-success-color;
+	border-color: $form-success-border-color;
+}
+
+.#{$prefix}form-danger,
+.#{$prefix}form-danger:focus {
+	color: $form-danger-color;
+	border-color: $form-danger-border-color;
+}
+
+/* Form Wrapper
+ * ========================================================================== */
+.#{$prefix}form-wrapper {
+	position: relative;
+}
+
+/* Label
+ * ============================================================ */
+.#{$prefix}form-label {
+	display: block;
+	font-size: $form-label-font-size;
+	color: $form-label-secondary-color;
+	line-height: initial;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}form-label {
+	margin-left: $form-label-margin-left;
+}
+
+body.#{$prefix}rtl .#{$prefix}form-wrapper .#{$prefix}form-label {
+	margin-right: $form-label-margin-left;
+	margin-left: 0;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input + .#{$prefix}form-label,
+.#{$prefix}form-wrapper .#{$prefix}textarea + .#{$prefix}form-label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	transform-origin: 0% 100%;
+	transform: translateY(0.7rem);
+	color: $form-label-secondary-color;
+	background-color: transparent;
+	padding: 0 $form-label-padding;
+	transition: all 0.3s ease-in-out;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input + .#{$prefix}form-label.#{$prefix}form-label-custom-style,
+.#{$prefix}form-wrapper .#{$prefix}textarea + .#{$prefix}form-label.#{$prefix}form-label-custom-style {
+	transform: translateY(1rem);
+}
+
+body.#{$prefix}rtl .#{$prefix}form-wrapper .#{$prefix}input + .#{$prefix}form-label,
+body.#{$prefix}rtl .#{$prefix}form-wrapper .#{$prefix}textarea + .#{$prefix}form-label {
+	right: 0;
+	left: auto;
+}
+
+.#{$prefix}form-wrapper .#{$prefix}input + .#{$prefix}form-label.#{$prefix}active,
+.#{$prefix}form-wrapper .#{$prefix}textarea + .#{$prefix}form-label.#{$prefix}active {
+	transform: translateY(-10px) scale(0.9);
+	background-color: $form-label-background;
+}
+
+.#{$prefix}form-label.#{$prefix}active,
+.#{$prefix}form-wrapper .#{$prefix}input:focus + .#{$prefix}form-label,
+.#{$prefix}form-wrapper .#{$prefix}textarea:focus + .#{$prefix}form-label {
+	color: $form-label-active-color;
+}
+
+/* Error Message
+ * ========================================================================== */
+.#{$prefix}form-wrapper .#{$prefix}form-error-message {
+	color: $form-danger-color;
+}

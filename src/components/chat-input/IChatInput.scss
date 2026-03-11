@@ -1,0 +1,326 @@
+@use "@/scss/functions" as *;
+@use "@/scss/helpers" as *;
+
+/* ============================================================
+ * Name:            Chat Input
+ * Description:     A textarea-based chat input component with file upload,
+ *                  emoji picker, and rating features
+ *
+ * Component:       `i-chatinput`
+ *
+ * Modifiers:
+ *   - `.i-chatinput-focused`     - Applied to buttons when textarea has focus
+ *   - `.active`                     - Applied to action buttons when input has value
+ *
+ * States:
+ *   - File upload preview
+ *   - Emoji picker expanded
+ *   - Ratings expanded
+ *   - Send button visible
+ *
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$chatinput-width: 100%;
+$chatinput-padding: padding(xsmall) 4.375rem padding(xsmall) padding(xsmall);
+
+$chatinput-editor-font-weight: fontWeight(regular);
+$chatinput-editor-font-size: fontSize(small);
+$chatinput-editor-font-family: font(family), sans-serif;
+$chatinput-editor-max-width: 100%;
+$chatinput-editor-width: 100%;
+$chatinput-editor-min-height: 1rem;
+$chatinput-editor-height: 1rem;
+$chatinput-editor-max-height: 9.375rem;
+$chatinput-editor-resize: none;
+$chatinput-editor-outline: none;
+
+$chatinput-button-color: color(grey-2);
+$chatinput-button-background: none;
+$chatinput-button-padding: 0;
+$chatinput-button-border: 1px solid transparent;
+$chatinput-button-border-radius: border(radius);
+$chatinput-outline-focus: none;
+
+$chatinput-send-background: transparent;
+$chatinput-send-color: color(green-1);
+$chatinput-send-border: 1px solid transparent;
+$chatinput-send-padding: 0;
+$chatinput-send-outline-focus: outline(width) solid outline(color);
+
+/* ============================================================
+ * Component: Chat Input
+ * ============================================================ */
+.i-chatinput {
+	width: $chatinput-width;
+	padding: 0;
+	position: relative;
+	box-sizing: border-box;
+}
+
+/* Emoji Picker Container
+ * ============================================================ */
+.i-chatinput-emojis {
+	position: absolute;
+	bottom: 100%;
+	left: auto;
+	right: 0;
+	top: auto;
+	margin: 0 auto 0.25rem;
+	z-index: 2;
+	width: 100%;
+	max-width: 19.875rem;
+}
+
+.i-chatinput-emojis .i-emoji-picker {
+	margin: 0 auto;
+	width: 100%;
+}
+
+/* File Upload Section
+ * ============================================================ */
+.i-chatinput-fileupload {
+	box-sizing: border-box;
+	padding: padding(xsmall);
+}
+
+.i-chatinput-fileupload-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.i-chatinput-fileupload-input,
+.i-chatinput-fileupload-preview {
+	margin-right: 0.625rem;
+	width: 3.125rem;
+	height: 3.125rem;
+}
+
+.i-chatinput-fileupload-preview {
+	padding: 0;
+	position: relative;
+	background: color(grey-10);
+	border-radius: border(radius);
+
+	.i-icon {
+		color: color(grey-2);
+	}
+}
+
+.i-chatinput-fileupload-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	border-radius: border(radius);
+}
+
+.i-chatinput-fileupload-input {
+	background: color(grey-10);
+	border-radius: border(radius);
+	cursor: pointer;
+
+	.i-icon-add {
+		color: color(grey-2);
+	}
+}
+
+.i-chatinput-fileupload-input:hover {
+	cursor: pointer;
+}
+
+.i-chatinput-fileupload input {
+	display: none;
+	box-sizing: border-box;
+}
+
+/* Textarea Editor
+ * ============================================================ */
+.i-chatinput-editor {
+	font: $chatinput-editor-font-weight $chatinput-editor-font-size
+		$chatinput-editor-font-family;
+	max-width: $chatinput-editor-max-width;
+	width: $chatinput-editor-width;
+	min-height: $chatinput-editor-min-height;
+	height: $chatinput-editor-height;
+	max-height: $chatinput-editor-max-height;
+	resize: $chatinput-editor-resize;
+	outline: $chatinput-editor-outline;
+	border: 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 0 5.5rem 0 0;
+	margin: 0.15rem 0 0 0;
+}
+
+/* Action Buttons
+ * ============================================================ */
+.i-chatinput-action-buttons {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.i-chatinput-action-buttons.active {
+	transition: 0.1s all ease;
+	right: 2rem;
+}
+
+/* Button Modifiers
+ * ============================================================ */
+.i-chatinput-button {
+	color: $chatinput-button-color;
+	background: $chatinput-button-background;
+	padding: $chatinput-button-padding;
+	border: $chatinput-button-border;
+	border-radius: $chatinput-button-border-radius;
+	display: inline-block;
+	position: relative;
+	width: 1.8rem;
+}
+
+.i-chatinput-button.i-chatinput-focused {
+	color: color(grey-1);
+}
+
+.i-chatinput-button:hover {
+	cursor: pointer;
+}
+
+.i-chatinput-button:focus {
+	outline: $chatinput-outline-focus;
+}
+
+/* Rating Section
+ * ============================================================ */
+.i-chatinput-button.active {
+	.i-chatinput-ratings {
+		width: 3.8125rem;
+		opacity: 1;
+	}
+
+	.i-chatinput-rating {
+		opacity: 0;
+	}
+}
+
+.i-chatinput-rating {
+	transition: opacity 1s ease-in-out;
+}
+
+.i-chatinput-ratings {
+	position: absolute;
+	background: color(white-1);
+	box-sizing: border-box;
+	width: 0;
+	bottom: -10px;
+	transition: all 0.3s ease;
+	right: 0;
+	height: 2.5rem;
+	overflow: hidden;
+	white-space: nowrap;
+	z-index: 1;
+}
+
+.i-chatinput-ratings input {
+	display: none;
+}
+
+.i-chatinput-rate {
+	background: none;
+	display: inline-block;
+	border: 0;
+	padding: 0;
+
+	&:hover {
+		transform: scale(1.4);
+	}
+}
+
+.i-chatinput-rate:hover {
+	cursor: pointer;
+}
+
+.i-chatinput-ratings-thumbs-down {
+	color: color(red-1);
+}
+
+.i-chatinput-ratings-thumbs-up {
+	color: color(green-1);
+}
+
+/* Send Button
+ * ============================================================ */
+.i-chatinput-send-container {
+	position: absolute;
+	top: 0;
+	right: 0px;
+}
+
+.i-chatinput-send {
+	background: $chatinput-send-background;
+	color: $chatinput-send-color;
+	border: $chatinput-send-border;
+	padding: $chatinput-send-padding;
+	width: 1.8rem;
+}
+
+.i-chatinput-send:hover {
+	cursor: pointer;
+}
+
+.i-chatinput-send:focus {
+	outline: $chatinput-send-outline-focus;
+}
+
+/* File Remove Button
+ * ============================================================ */
+.i-chatinput-file-remove {
+	position: absolute;
+	right: -6px;
+	top: -6px;
+	background: color(white-1);
+	width: 0.875rem;
+	height: 0.875rem;
+	border-radius: border(radius-rounded);
+	border: border(width) solid color(red-1);
+	cursor: pointer;
+
+	.i-icon-close {
+		font-size: 0.375rem;
+		color: color(red-1);
+	}
+}
+
+/* Wrapper
+ * ============================================================ */
+.i-chatinput-wrap {
+	position: relative;
+}
+
+/* RTL Support
+ * ============================================================ */
+.i-rtl {
+	.i-chatinput-editor {
+		padding: 0 0 0 5.5rem;
+	}
+
+	.i-chatinput-action-buttons {
+		left: 0;
+		right: auto;
+
+		&.active {
+			left: 30px;
+		}
+	}
+
+	.i-chatinput-ratings,
+	.i-chatinput-emojis,
+	.i-chatinput-send-container {
+		left: 0;
+		right: auto;
+	}
+}

@@ -1,0 +1,87 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:            Rating
+ * Description:     KB Module rating
+ *
+ * Component:       `#{$prefix}rating`
+ *
+ * Sub-component:	`#{$prefix}rating-button`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$rating-padding: padding(default) !default;
+
+$rating-button-height: calc(#{control-height(large)} + 1.25rem) !default;
+$rating-button-width: $rating-button-height !default;
+$rating-button-margin: margin(small) !default;
+
+$rating-button-disabled-background: color(grey-10) !default;
+
+/* ============================================================
+ * Component: Rating
+ * ============================================================ */
+/*
+ * 1. Maximize the parent width
+ * 2. Align items vertical and horizontal
+ * 3. Style
+ */
+.#{$prefix}rating {
+	/* 1 */
+	width: 100%;
+
+	/* 2 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	/* 3 */
+	box-sizing: border-box;
+	padding: $rating-padding;
+}
+
+/* Button
+ * ============================================================ */
+/*
+ * 1. Set dimension into square
+ * 2. Reset the style
+ * 3. Style
+ */
+.#{$prefix}rating-button {
+	/* 1 */
+	height: $rating-button-height;
+	width: $rating-button-width;
+
+	/* 2 */
+	background-color: color(grey-10) !important;
+	color: color(grey-1) !important;
+	border: 1px solid color(grey-10) !important;
+	margin: 0 8px !important;
+
+	/* Display flex to properly size the image */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.#{$prefix}rating-button svg,
+.#{$prefix}rating-button img {
+	width: 40px;
+	height: 40px;
+}
+
+.#{$prefix}rating-button:hover,
+.#{$prefix}rating-button.#{$prefix}active {
+	background-color: color(grey-10) !important;
+	border-color: color(grey-3) !important;
+}
+
+/*
+ * Disabled
+ */
+.i-rating-button:disabled {
+	background-color: $rating-button-disabled-background !important;
+	opacity: 0.7;
+}

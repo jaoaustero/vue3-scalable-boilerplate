@@ -1,0 +1,198 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:            Phone Input
+ * Description:     International phone number input with
+ *                  country-code flag selector and search.
+ *
+ * Component:       `#{$prefix}phone-input-wrapper`
+ *
+ * Sub-objects:     `#{$prefix}phone-input-dropdown-button`
+ *                  `#{$prefix}phone-input-dropdown-menu-header`
+ *                  `#{$prefix}phone-input-plus`
+ *                  `#{$prefix}phone-input-country-list`
+ *                  `#{$prefix}phone-input-country-item`
+ *
+ * Adopts:          `#{$prefix}dropdown`
+ *                  `#{$prefix}input`
+ *                  `#{$prefix}list`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$phone-input-dropdown-button-background: color(white-1) !default;
+$phone-input-dropdown-button-border: border(width) solid border(color) !default;
+$phone-input-dropdown-button-color: color(grey-2) !default;
+$phone-input-dropdown-button-padding: padding(xsmall) !default;
+
+$phone-input-dropdown-menu-header-padding: padding(small) !default;
+$phone-input-dropdown-menu-max-height: 200px !default;
+
+$phone-input-country-item-active-bg: color(grey-10) !default;
+
+$phone-input-plus-width: 40px !default;
+$phone-input-plus-height: 40px !default;
+$phone-input-plus-color: color(grey-1) !default;
+$phone-input-plus-z-index: 2 !default;
+
+
+/* ============================================================
+ * Component: Phone Input Wrapper
+ * ============================================================ */
+.#{$prefix}phone-input-wrapper {
+	display: flex;
+}
+
+/* ============================================================
+ * Dropdown Button
+ * ============================================================ */
+
+/*
+ * 1. Reset button styles
+ * 2. Align flag and caret horizontally
+ * 3. Remove right-side border radius — input takes over on the right
+ */
+.#{$prefix}phone-input-dropdown-button {
+	/* 1 */
+	background-color: $phone-input-dropdown-button-background;
+	border: $phone-input-dropdown-button-border;
+	color: $phone-input-dropdown-button-color;
+	padding: $phone-input-dropdown-button-padding;
+
+	/* 2 */
+	display: flex;
+	align-items: center;
+	height: 40px;
+
+	/* 3 */
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	box-shadow: none;
+}
+
+.#{$prefix}phone-input-dropdown-button.#{$prefix}button:not(.#{$prefix}button-text) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	box-shadow: none;
+}
+
+/* Position the dropdown element relative to the wrapper */
+.#{$prefix}phone-input-wrapper .#{$prefix}dropdown {
+	position: initial;
+}
+
+/* Override width on the inner dropdown element */
+.#{$prefix}form-wrapper.#{$prefix}phone-input-wrapper .#{$prefix}dropdown {
+	width: initial;
+}
+
+/* Full-width dropdown menu */
+.#{$prefix}phone-input-wrapper .#{$prefix}dropdown-menu {
+	padding: 0;
+	width: 100%;
+	max-width: none;
+}
+
+/* ============================================================
+ * Dropdown Search Header
+ * ============================================================ */
+.#{$prefix}phone-input-dropdown-menu-header {
+	padding: $phone-input-dropdown-menu-header-padding;
+}
+
+/* Show the placeholder text in the search box */
+.#{$prefix}phone-input-wrapper .#{$prefix}input::placeholder {
+	opacity: 1 !important;
+}
+
+/* ============================================================
+ * Country List
+ * ============================================================ */
+.#{$prefix}phone-input-country-list {
+	max-height: $phone-input-dropdown-menu-max-height;
+	overflow-y: auto;
+}
+
+.#{$prefix}phone-input-country-item {
+	cursor: pointer;
+}
+
+.#{$prefix}phone-input-country-item.#{$prefix}active {
+	background-color: $phone-input-country-item-active-bg;
+}
+
+.#{$prefix}phone-input-country-item:hover,
+.#{$prefix}phone-input-country-item:active {
+	background-color: $phone-input-country-item-active-bg;
+}
+
+.#{$prefix}phone-input-country-item-inner {
+	display: flex;
+	align-items: center;
+	gap: padding(xsmall);
+}
+
+.#{$prefix}phone-input-country-name {
+	flex: 1;
+}
+
+/* ============================================================
+ * Number Input Area
+ * ============================================================ */
+
+/*
+ * Remove spinner on number inputs
+ */
+.#{$prefix}phone-input-wrapper input[type='number']::-webkit-inner-spin-button,
+.#{$prefix}phone-input-wrapper input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.#{$prefix}phone-input-wrapper input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+/*
+ * Remove left border radius — the dropdown button occupies the left side
+ */
+.#{$prefix}phone-input-plus + .#{$prefix}form-wrapper .#{$prefix}input {
+	padding-left: padding(medium);
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+/* ============================================================
+ * Plus Sign
+ * 1. Non-interactive overlay
+ * 2. Absolutely positioned at the left of the input
+ * 3. Vertically centered
+ * 4. Hidden by default, visible when active
+ * ============================================================ */
+.#{$prefix}phone-input-plus {
+	/* 1 */
+	pointer-events: none;
+
+	/* 2 */
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: $phone-input-plus-height;
+	width: $phone-input-plus-width;
+
+	/* 3 */
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	/* 4 */
+	color: $phone-input-plus-color;
+	z-index: $phone-input-plus-z-index;
+	opacity: 0;
+}
+
+.#{$prefix}active.#{$prefix}phone-input-plus {
+	opacity: 1;
+}

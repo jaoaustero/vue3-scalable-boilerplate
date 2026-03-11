@@ -1,0 +1,261 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:            Search
+ * Description:     Search input with dropdown for options
+ *
+ * Component:       `#{$prefix}search-wrapper`
+ *                  `#{$prefix}search`
+ *                  `#{$prefix}search-dropdown`
+ *                  `#{$prefix}search-list`
+ *                  `#{$prefix}search-loader`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$search-dropdown-offset-y: 3.5rem !default;
+$search-dropdown-max-width: 100% !default;
+$search-dropdown-menu-z-index: layer(dropdown) !default;
+$search-dropdown-background: color(white-1) !default;
+$search-dropdown-menu-box-shadow: box-shadow(medium) !default;
+
+$search-icon-width: 1.875rem !default;
+
+$search-list-item-padding: padding(small) !default;
+$search-list-item-color: color(grey-1) !default;
+$search-list-item-hover-color: color(grey-1) !default;
+$search-list-item-active-color: color(grey-10) !default;
+$search-list-item-icon-color: color(green-1) !default;
+$search-list-item-title-icon-margin-right: margin(small) !default;
+
+/* ============================================================
+ * Component: Search input
+ * ============================================================ */
+.#{$prefix}input.#{$prefix}search {
+	height: 3rem;
+	position: relative;
+	z-index: 2;
+	line-height: 1rem;
+	padding: 0 36px;
+
+	&.#{$prefix}search-left-padding {
+		text-align: right;
+	}
+
+	&.#{$prefix}search-right-padding {
+		text-align: left;
+	}
+
+	&::-ms-clear {
+		display: none;
+	}
+}
+
+.#{$prefix}input.#{$prefix}search,
+.#{$prefix}input.#{$prefix}search:focus,
+.#{$prefix}input.#{$prefix}search:hover {
+	border: none;
+}
+
+.#{$prefix}search::placeholder {
+	opacity: 1 !important;
+}
+
+/* Wrapper
+ * ============================================================ */
+.#{$prefix}search-wrapper {
+	background: color(white-1);
+	position: relative;
+	border-radius: 6px;
+	z-index: 1;
+	padding: 0.0625rem;
+	border: border(width) solid border(color);
+}
+
+.#{$prefix}search-wrapper .#{$prefix}input {
+	border-radius: 6px;
+}
+
+/* Icon modifier
+ * ============================================================ */
+.#{$prefix}icon.#{$prefix}search-icon {
+	width: $search-icon-width;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+}
+
+.#{$prefix}search-icon.#{$prefix}search-icon-flip {
+	right: auto;
+	left: 0;
+}
+
+.#{$prefix}search-icon:not(.#{$prefix}search-icon-flip) + .#{$prefix}search {
+	padding-left: $search-icon-width;
+}
+
+.#{$prefix}search-icon.#{$prefix}search-icon-flip + .#{$prefix}search {
+	padding-right: $search-icon-width;
+}
+
+.#{$prefix}search-icon.#{$prefix}icon-close {
+	cursor: pointer;
+}
+
+/* Dropdown
+ * ============================================================ */
+.#{$prefix}search-dropdown {
+	display: none;
+	position: absolute;
+	top: $search-dropdown-offset-y;
+	left: 0;
+	right: 0;
+	z-index: $search-dropdown-menu-z-index;
+	width: $search-dropdown-max-width;
+	background-color: $search-dropdown-background;
+	box-shadow: $search-dropdown-menu-box-shadow;
+	box-sizing: border-box;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.#{$prefix}search-dropdown.#{$prefix}open {
+	display: block;
+}
+
+/* List
+ * ============================================================ */
+.#{$prefix}search-list {
+	list-style-type: none;
+	padding: 0;
+	text-align: left;
+}
+
+.#{$prefix}search-list > li {
+	padding: 0.5rem $search-list-item-padding;
+	color: $search-list-item-color;
+}
+
+.#{$prefix}search-list > li:not(.#{$prefix}search-list-title):hover {
+	color: $search-list-item-hover-color;
+	background-color: $search-list-item-active-color;
+	cursor: pointer;
+}
+
+.i-search-list-title-button {
+	color: $search-list-item-color;
+	cursor: pointer;
+}
+
+.#{$prefix}search-list > li.#{$prefix}active {
+	background-color: $search-list-item-active-color;
+}
+
+.#{$prefix}search-list-icon {
+	fill: color(grey-2);
+	width: 1rem;
+	height: 1rem;
+}
+
+/* Title
+ * ============================================================ */
+.#{$prefix}search-list-title {
+	display: flex;
+	align-items: center;
+}
+
+.#{$prefix}search-list-title .#{$prefix}search-list-title-icon {
+	margin-right: $search-list-item-title-icon-margin-right;
+}
+
+.#{$prefix}search-list-title .#{$prefix}search-list-title-label {
+	flex: 1;
+	font-size: font-size(medium);
+}
+
+/* Loader
+ * ============================================================ */
+.#{$prefix}search-loader {
+	width: 100%;
+	box-sizing: border-box;
+	padding: $search-list-item-padding;
+}
+
+/* Buttons
+ * ============================================================ */
+.#{$prefix}search-button {
+	height: calc(100% - 0.125rem);
+	width: 36px;
+	color: color(grey-5) !important;
+	position: absolute !important;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+
+	&.#{$prefix}search-left-button {
+		right: auto;
+		left: 1px;
+		border-radius: 4px 0 0 4px;
+	}
+
+	&.#{$prefix}search-right-button {
+		right: 1px;
+		left: auto;
+		border-radius: 0 4px 4px 0;
+	}
+}
+
+.#{$prefix}search-button .#{$prefix}icon {
+	font-size: 18px;
+	margin: 0 4px;
+}
+
+.#{$prefix}search-button-close {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 0 !important;
+	z-index: 2;
+	height: 1.5625rem !important;
+	width: 1.5625rem !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-color: color(grey-9) !important;
+	background: color(grey-9) !important;
+	color: color(grey-1) !important;
+	border: none !important;
+
+	.#{$prefix}icon {
+		font-size: 0.9rem;
+		margin: 0;
+		padding: 0;
+		height: 1.5625rem;
+		width: 1.5625rem;
+	}
+
+	&.#{$prefix}search-left-button {
+		right: auto;
+		left: 1rem;
+	}
+
+	&.#{$prefix}search-right-button {
+		right: 1rem;
+		left: auto;
+	}
+}
+
+/* Transition
+ * ============================================================ */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+	transition: all 0.2s ease-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+	transform: translateY(-8px);
+	opacity: 0;
+}

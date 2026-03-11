@@ -1,42 +1,61 @@
-/**
- * Available icon sizes
- */
-export const iconSizes = [
-	"xsmall",
-	"small",
-	"medium",
-	"large",
-	"xlarge",
-	"xxlarge",
+export const iconNames = [
+	'alert',
+	'arrow-down',
+	'arrow-left',
+	'arrow-right',
+	'attachment',
+	'audio-file',
+	'bullet-points',
+	'call-end',
+	'call-ingoing',
+	'call',
+	'caret-down',
+	'chat-bubble',
+	'chat-widget',
+	'close-circle',
+	'csv-file',
+	'doc-file',
+	'double-chevron-down',
+	'edit',
+	'emoji',
+	'envelope',
+	'export',
+	'filter-funnel',
+	'generic-file',
+	'home',
+	'menu',
+	'message',
+	'missed-chat',
+	'mute',
+	'pdf-file',
+	'plus',
+	'popout',
+	'search',
+	'searches',
+	'send',
+	'share-screen',
+	'text-file',
+	'thumbs-down',
+	'thumbs-up',
+	'user',
+	'video-call-off',
+	'video-call-on',
+	'video-file',
+	'volume-down',
+	'volume-up',
+	'warning-triangle',
+	'x',
 ] as const;
 
-/**
- * Icon size type
- */
-export type IIconSize = (typeof iconSizes)[number];
+export type IIconName = typeof iconNames[number];
 
-/**
- * Icon name type
- * Auto-generated icon names will be determined at runtime
- */
-export type IIconName = string;
+export const iconSizes = [
+	'xsmall',
+	'small',
+	'medium',
+	'large',
+	'xlarge',
+	'xxlarge',
+] as const;
 
-/**
- * Props for the IIcon component
- */
-export interface IIconProps {
-	/**
-	 * The icon name that matches an SVG asset
-	 */
-	type: IIconName;
-
-	/**
-	 * A size modifier that increases or decreases the icon size
-	 */
-	size?: IIconSize;
-
-	/**
-	 * Accessible label for the icon
-	 */
-	label?: string;
-}
+export type IIconSize = typeof iconSizes[number];

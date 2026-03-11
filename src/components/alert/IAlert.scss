@@ -1,0 +1,264 @@
+@use "sass:color";
+
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Alert
+ * Description:     Component to create alert messages
+ *
+ * Component:       `#{$prefix}alert`
+ *
+ * Sub-component:	`#{$prefix}alert-title`
+ *					`#{$prefix}alert-icon`
+ *					`#{$prefix}alert-description`
+ *
+ * Modifiers:       `#{$prefix}alert-success`
+ *                  `#{$prefix}alert-warning`
+ *                  `#{$prefix}alert-danger`
+ *                  `#{$prefix}alert-xsmall`
+ *                  `#{$prefix}alert-small`
+ *                  `#{$prefix}alert-medium`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$alert-padding-vertical: padding(small) !default;
+$alert-padding-horizontal: padding(default) !default;
+$alert-background: color(white-1) !default;
+$alert-color: color(grey-1) !default;
+
+$alert-border: border(width) solid color(grey-9) !default;
+$alert-border-left: (border(width) + 4px) solid color(grey-9) !default;
+
+$alert-title-font-size: font-size(medium) !default;
+$alert-title-color: color(grey-1) !default;
+$alert-font-weight: font-weight(regular) !default;
+
+$alert-icon-color: color(grey-1) !default;
+
+$alert-success-title-color: color(green-1) !default;
+$alert-success-border-left-color: color(green-1) !default;
+$alert-success-icon-color: color(green-1) !default;
+
+$alert-warning-title-color: color(yellow-1) !default;
+$alert-warning-border-left-color: color(yellow-1) !default;
+$alert-warning-icon-color: color(yellow-1) !default;
+
+$alert-danger-title-color: color(red-1) !default;
+$alert-danger-border-left-color: color(red-1) !default;
+$alert-danger-icon-color: color(red-1) !default;
+
+$alert-xsmall-padding: padding(xsmall) !default;
+$alert-xsmall-font-size: font-size(xsmall) !default;
+
+$alert-small-padding: padding(small) !default;
+$alert-small-font-size: font-size(small) !default;
+
+$alert-medium-padding: padding(medium) !default;
+$alert-medium-font-size: font-size(medium) !default;
+
+
+/* ============================================================
+ * Component: Alert
+ * ============================================================ */
+/*
+ * 1. Add gutter
+ * 2. Add the base color
+ * 3. Add different border style
+ * 4. Styles
+ */
+.#{$prefix}alert {
+	/* 1 */
+	padding: $alert-padding-vertical $alert-padding-horizontal;
+
+	/* 2 */
+	background: $alert-background;
+	color: $alert-color;
+
+	/* 3 */
+	border-top: $alert-border;
+	border-bottom: $alert-border;
+	border-left: $alert-border-left;
+	border-right: $alert-border;
+	border-radius: border(radius);
+
+	/* 4 */
+	position: relative;
+	box-sizing: border-box;
+}
+
+.#{$prefix}alert .#{$prefix}close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: transparent;
+	border: 0;
+	height: 100%;
+	border-radius: 0 5px 5px 0;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+	background: color(grey-10);
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		outline: none;
+	}
+}
+
+.#{$prefix}alert .#{$prefix}close.#{$prefix}isMobile {
+	visibility: visible;
+}
+
+.#{$prefix}alert:hover .#{$prefix}close {
+	visibility: visible;
+}
+
+.#{$prefix}alert .#{$prefix}close span {
+	display: block;
+	position: relative;
+	width: 0.9375rem;
+	height: 0.9375rem;
+	opacity: 0.8;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.#{$prefix}alert .#{$prefix}close:hover span {
+	opacity: 1;
+}
+
+.#{$prefix}close span:before,
+.#{$prefix}close span:after {
+	display: inline-block;
+	content: ' ';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 0.9375rem;
+	width: 0.125rem;
+	background-color: #333333;
+}
+
+.#{$prefix}close span:before {
+	transform: rotate(45deg);
+}
+.#{$prefix}close span:after {
+	transform: rotate(-45deg);
+}
+
+
+/* Color modifiers
+ * ============================================================ */
+/*
+ * Success
+ */
+.#{$prefix}alert-success {
+	border-left-color: $alert-success-border-left-color;
+}
+
+.#{$prefix}alert-success .#{$prefix}alert-title {
+	color: $alert-success-title-color;
+}
+
+.#{$prefix}alert-success .#{$prefix}alert-icon {
+	color: $alert-success-icon-color;
+}
+
+/*
+ * Warning
+ */
+.#{$prefix}alert-warning {
+	border-left-color: $alert-warning-border-left-color;
+}
+
+.#{$prefix}alert-warning .#{$prefix}alert-title {
+	color: $alert-warning-title-color;
+}
+
+.#{$prefix}alert-warning .#{$prefix}alert-icon {
+	color: $alert-warning-icon-color;
+}
+
+/*
+ * Danger
+ */
+.#{$prefix}alert-danger {
+	border-left-color: $alert-danger-border-left-color;
+}
+
+.#{$prefix}alert-danger .#{$prefix}alert-title {
+	color: $alert-danger-title-color;
+}
+
+.#{$prefix}alert-danger .#{$prefix}alert-icon {
+	color: $alert-danger-icon-color;
+}
+
+
+/* Title modifier
+ * =========================================================== */
+.#{$prefix}alert-title {
+	font-size: $alert-title-font-size;
+	color: $alert-title-color;
+}
+
+
+/* Icon modifiers
+ * ============================================================ */
+.#{$prefix}alert-icon {
+	color: $alert-icon-color;
+}
+
+
+/* Size modifiers
+ * ============================================================ */
+.#{$prefix}alert-xsmall {
+	padding: $alert-xsmall-padding;
+}
+
+.#{$prefix}alert-xsmall .#{$prefix}alert-title {
+	font-size: $alert-xsmall-font-size;
+}
+
+.#{$prefix}alert-xsmall .#{$prefix}alert-description {
+	font-size: 0.75rem;
+	font-size: calc(#{font-size(xsmall)} - 0.125rem);
+}
+
+.#{$prefix}alert-small {
+	padding: $alert-small-padding;
+}
+
+.#{$prefix}alert-small .#{$prefix}alert-title {
+	font-size: $alert-small-font-size;
+}
+
+.#{$prefix}alert-medium {
+	padding: $alert-medium-padding;
+}
+
+.#{$prefix}alert-medium .#{$prefix}alert-title {
+	font-size: $alert-medium-font-size;
+}
+
+
+/* Transition
+ * ============================================================ */
+.alert-fade-enter-active,
+.alert-fade-leave-active {
+	transition: opacity 0.5s;
+}
+
+.alert-fade-enter-from,
+.alert-fade-leave-to {
+	opacity: 0;
+}

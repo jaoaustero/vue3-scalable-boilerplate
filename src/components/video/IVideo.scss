@@ -1,0 +1,39 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:            Video
+ * Description:     A component that displays video (selfhosted
+ *                 or embedded via iframe).
+ *
+ * Component:       `#{$prefix}video-iframe-container`
+ *                  `#{$prefix}video-iframe`
+ *                  `#{$prefix}video-el`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$video-iframe-container-padding-top: 56.25% !default;
+$video-border-radius: border(radius) !default;
+
+/* ============================================================
+ * Component: Video
+ * ============================================================ */
+.#{$prefix}video-iframe-container {
+	width: 100%;
+	padding-top: $video-iframe-container-padding-top;
+	position: relative;
+}
+
+.#{$prefix}video-iframe {
+	border-radius: $video-border-radius;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.#{$prefix}video-el {
+	width: 100%;
+}

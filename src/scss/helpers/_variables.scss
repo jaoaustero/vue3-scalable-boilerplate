@@ -106,6 +106,35 @@ $muted: #747474 !default;
 $idle: #bababa !default;
 $link: #0d70d3 !default;
 
+// Component colors (from messenger-components)
+$green-1: #03a84e !default;
+$green-2: #51c2ba !default;
+$orange-1: #f89521 !default;
+$yellow-1: #fdc20f !default;
+$red-1: #bf1212 !default;
+$red-2: #f0505c !default;
+$pink-1: #f28eb8 !default;
+$blue-1: #46c4f2 !default;
+$blue-2: #10e6d4 !default;
+$blue-3: #1f6885 !default;
+$violet-1: #9e53ff !default;
+$dark-blue: #0066FF !default;
+
+// Monochrome
+$black-1: #000000 !default;
+$white-1: #ffffff !default;
+$grey-1: #121212 !default;
+$grey-2: #212121 !default;
+$grey-3: #242424 !default;
+$grey-4: #545454 !default;
+$grey-5: #6e6e6e !default;
+$grey-6: #828282 !default;
+$grey-7: #b2b2b2 !default;
+$grey-8: #d4d4d4 !default;
+$grey-9: #e5e5e5 !default;
+$grey-10: #f5f5f5 !default;
+$grey-11: #fafafa !default;
+
 // Used in creating text modifiers
 $text-color: () !default;
 $text-color: (
@@ -153,6 +182,35 @@ $background-color: (
 	background: $background,
 );
 
+// Component color map (used by migrated components)
+$color: () !default;
+$color: (
+	green-1: $green-1,
+	orange-1: $orange-1,
+	yellow-1: $yellow-1,
+	red-1: $red-1,
+	red-2: $red-2,
+	pink-1: $pink-1,
+	green-2: $green-2,
+	blue-1: $blue-1,
+	blue-2: $blue-2,
+	blue-3: $blue-3,
+	violet-1: $violet-1,
+	grey-1: $grey-1,
+	grey-2: $grey-2,
+	grey-3: $grey-3,
+	grey-4: $grey-4,
+	grey-5: $grey-5,
+	grey-6: $grey-6,
+	grey-7: $grey-7,
+	grey-8: $grey-8,
+	grey-9: $grey-9,
+	grey-10: $grey-10,
+	grey-11: $grey-11,
+	black-1: $black-1,
+	white-1: $white-1,
+);
+
 /* Color Yiq
    ============================================================ */
 
@@ -165,14 +223,25 @@ $yiq-text-light: $inverse !default;
 $border: () !default;
 $border: (
 	radius: 0.225rem,
+	radius-rounded: 50%,
 	width: 1px,
 	color: #e5e5e5,
+);
+
+/* Outline
+   ============================================================ */
+$outline: () !default;
+$outline: (
+	width: 1px,
+	color: $dark-blue,
+	box-shadow: 0px 0px 0px 1px rgba(0, 102, 255, 0.40),
 );
 
 /* Box Shadow
    ============================================================ */
 $box-shadow: () !default;
 $box-shadow: (
+	xsmall: 0 2px 3px rgba(0, 0, 0, 0.08),
 	small: 0 2px 8px rgba(0, 0, 0, 0.08),
 	medium: 0 5px 15px rgba(0, 0, 0, 0.12),
 	large: 0 14px 25px rgba(0, 0, 0, 0.16),
@@ -202,6 +271,17 @@ $gutter: (
 	large: 70px,
 );
 
+// Used in component padding
+$padding: () !default;
+$padding: (
+	default: 1.3rem,
+	xsmall: 0.6rem,
+	small: 1rem,
+	medium: 2rem,
+	large: 2.5rem,
+	xlarge: 3rem,
+);
+
 /* Control height
    ============================================================ */
 $control-height: () !default;
@@ -215,7 +295,9 @@ $control-height: (
    ============================================================ */
 $layer: () !default;
 $layer: (
+	chatInput: 1000,
 	dropdown: 1000,
+	overlay: 1050,
 	navbar: 1050,
 	sidebar: 1100,
 	offcanvas: 1150,

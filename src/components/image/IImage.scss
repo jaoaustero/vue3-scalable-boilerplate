@@ -1,0 +1,75 @@
+@use "@/scss/functions" as *;
+@use "@/scss/helpers" as *;
+
+/* ============================================================
+ * Name:            Image
+ * Description:     A component that displays an image with loading state
+ *
+ * Component:       `i-image`
+ * Modifiers:       `i-image-left`
+ *                  `i-image-right`
+ *                  `i-image-center`
+ *
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$image-max-width: 100%;
+$image-border-radius: border(radius);
+
+$loader-size: 1.25rem;
+$loader-border-width: 5px;
+$loader-margin: 1.25rem auto;
+
+/* ============================================================
+ * Component: Image
+ * ============================================================ */
+.i-image {
+	max-width: $image-max-width;
+	border-radius: $image-border-radius;
+}
+
+/* Position modifiers
+ * ============================================================ */
+.i-image-left {
+	text-align: left;
+}
+
+.i-image-right {
+	text-align: right;
+}
+
+.i-image-center {
+	text-align: center;
+}
+
+/* Loading Spinner
+ * ============================================================ */
+.i-image-loader,
+.i-image-loader::after {
+	border-radius: 50%;
+	width: $loader-size;
+	height: $loader-size;
+}
+
+.i-image-loader {
+	margin: $loader-margin;
+	font-size: 0.625rem;
+	position: relative;
+	text-indent: -9999rem;
+	border-top: $loader-border-width solid color(grey-2);
+	border-right: $loader-border-width solid color(grey-2);
+	border-bottom: $loader-border-width solid color(grey-2);
+	border-left: $loader-border-width solid color(grey-3);
+	transform: translateZ(0);
+	animation: i-image-spin 1.1s infinite linear;
+}
+
+@keyframes i-image-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

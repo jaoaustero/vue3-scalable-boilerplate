@@ -1,0 +1,86 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+@use "@/scss/mixins" as *;
+
+/* ============================================================
+ * Name:            Tooltip
+ * Description:     Displays a tooltip on hover over an element
+ *
+ * Component:       `#{$prefix}tooltip`
+ *
+ * Sub-objects:     `#{$prefix}tooltip-hover`
+ *                  `#{$prefix}tooltip-arrow`
+ *
+ * Modifiers:       `.bottom`
+ * ============================================================ */
+
+
+/* Variables
+ * ============================================================ */
+$tooltip-background: color(grey-1) !default;
+$tooltip-text-color: color(white-1) !default;
+$tooltip-font-size: font-size(xsmall) !default;
+$tooltip-margin-top: 8px !default;
+$tooltip-padding-vertical: 4px !default;
+$tooltip-padding-horizontal: 8px !default;
+$tooltip-border-radius: 5px !default;
+$tooltip-arrow-size: 8px !default;
+$tooltip-z-index: 2 !default;
+$tooltip-transition-show: opacity 0.5s 0.5s linear !default;
+$tooltip-transition-hide: opacity 0s linear !default;
+
+
+/* ============================================================
+ * Component: Tooltip hover state
+ * ============================================================ */
+
+.#{$prefix}tooltip:hover .#{$prefix}tooltip-hover {
+	opacity: 1;
+	transition: $tooltip-transition-show;
+}
+
+
+/* ============================================================
+ * Component: Tooltip container
+ * ============================================================ */
+
+.#{$prefix}tooltip .#{$prefix}tooltip-hover {
+	position: fixed;
+	margin-top: $tooltip-margin-top;
+	padding: $tooltip-padding-vertical $tooltip-padding-horizontal;
+	border-radius: $tooltip-border-radius;
+	background: $tooltip-background;
+	color: $tooltip-text-color;
+	text-align: center;
+	font-size: $tooltip-font-size;
+	right: 0;
+	left: auto;
+	opacity: 0;
+	transition: $tooltip-transition-hide;
+	z-index: $tooltip-z-index;
+}
+
+
+/* ============================================================
+ * Component: Tooltip arrow (top position - default)
+ * ============================================================ */
+
+.#{$prefix}tooltip .#{$prefix}tooltip-hover .#{$prefix}tooltip-arrow {
+	top: -16px;
+	border: $tooltip-arrow-size solid;
+	display: block;
+	left: 50%;
+	border-color: transparent transparent $tooltip-background transparent;
+	position: absolute;
+}
+
+
+/* ============================================================
+ * Modifier: Bottom position
+ * ============================================================ */
+
+.#{$prefix}tooltip .#{$prefix}tooltip-hover.bottom .#{$prefix}tooltip-arrow {
+	border-color: $tooltip-background transparent transparent transparent;
+	bottom: -16px;
+	top: auto;
+}
