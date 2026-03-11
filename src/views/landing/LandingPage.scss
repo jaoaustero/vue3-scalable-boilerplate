@@ -1,0 +1,55 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:                Landing Page
+ * Description:         Landing page with login card
+ *
+ * Component:           `#{$prefix}landing`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$landing-card-max-width: 400px !default;
+$landing-card-padding: padding(medium) !default;
+$landing-title-margin-bottom: margin(xsmall) !default;
+$landing-subtitle-margin-bottom: margin(small) * 1.5 !default;
+$landing-subtitle-opacity: 0.7 !default;
+$landing-form-gap: margin(small) !default;
+$landing-button-margin-top: margin(xsmall) !default;
+
+/* ============================================================
+ * Component: Landing Page
+ * ============================================================ */
+.#{$prefix}landing {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.#{$prefix}landing-card {
+	width: 100%;
+	max-width: $landing-card-max-width;
+	padding: $landing-card-padding;
+}
+
+.#{$prefix}landing-title {
+	margin: 0 0 $landing-title-margin-bottom;
+}
+
+.#{$prefix}landing-subtitle {
+	margin: 0 0 $landing-subtitle-margin-bottom;
+	opacity: $landing-subtitle-opacity;
+}
+
+.#{$prefix}landing-form {
+	display: flex;
+	flex-direction: column;
+	gap: $landing-form-gap;
+}
+
+.#{$prefix}landing-button {
+	margin-top: $landing-button-margin-top;
+	width: 100%;
+}

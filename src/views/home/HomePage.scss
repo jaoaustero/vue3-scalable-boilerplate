@@ -1,0 +1,25 @@
+@use "@/scss/helpers" as *;
+@use "@/scss/functions" as *;
+
+/* ============================================================
+ * Name:                Home Page
+ * Description:         Authenticated home page
+ *
+ * Component:           `#{$prefix}home`
+ * ============================================================ */
+
+/* Variables
+ * ============================================================ */
+$home-gap: margin(xsmall) !default;
+
+/* ============================================================
+ * Component: Home Page
+ * ============================================================ */
+.#{$prefix}home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	gap: $home-gap;
+}
